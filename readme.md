@@ -3,10 +3,10 @@
 Le jeu peut être rendu plus intéressant en gérant :
 
 ####différents types de salle :
-	la salle normale que le joueur ne fait que traverser
-	la salle avec monstre qu’il faut terrasser avant de pouvoir faire quoique ce soit
-	la salle avec un trésor qu’il faut récupérer
-	la salle avec un bouton qu’il faut presser.
+	* la salle normale que le joueur ne fait que traverser
+	* la salle avec monstre qu’il faut terrasser avant de pouvoir faire quoique ce soit
+	* la salle avec un trésor qu’il faut récupérer
+	* la salle avec un bouton qu’il faut presser.
 
 ####différents types de sorties de salle :
 	— la sortie normale que le joueur voit et peut emprunter quand il le souhaite

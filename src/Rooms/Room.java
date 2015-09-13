@@ -10,9 +10,19 @@ public abstract class Room {
 		return this;
 	}
 	
-	public void printAllExit(){
-		System.out.println(rooms.toString());
+	public String printAllExit(){
+		return rooms.toString();
 	}
 	
 	public abstract String toString();
+	
+	public abstract boolean canEnert();
+	
+	public void setRoom(String direction, Room room){
+		rooms.put(direction, room);
+	}
+	
+	public Room getRoom(String direction){
+		return rooms.get(direction);
+	}
 }

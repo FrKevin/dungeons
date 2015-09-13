@@ -7,4 +7,9 @@ public class EnterRoom extends Room{
 		return "Your are in the entrance room.";
 	}
 
+	@Override
+	public boolean canEnert() {
+		return true;
+	}
+
 }

@@ -8,4 +8,9 @@ public class TrapRoom extends Room{
 		return null;
 	}
 
+	@Override
+	public boolean canEnert() {
+		return true;
+	}
+
 }

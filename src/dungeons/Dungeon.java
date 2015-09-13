@@ -20,6 +20,7 @@ public class Dungeon {
 	
 	public void goDirection(StringBuffer stringBuffer){
 		currentRoom = currentRoom.interpretCommand(stringBuffer);
+		System.out.println( currentRoom.printAllExit() );
 	}
 	
 	public void use(){

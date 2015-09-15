@@ -7,6 +7,10 @@ public abstract class Room {
 	
 	
 	public Room interpretCommand(StringBuffer stringBuffer){
+		if( rooms.containsKey(stringBuffer.toString())){
+			System.out.println(rooms.get(stringBuffer.toString()));
+			return rooms.get(stringBuffer.toString());
+		}
 		return this;
 	}
 	

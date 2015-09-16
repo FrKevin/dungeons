@@ -8,9 +8,8 @@ import rooms.Room;
 
 public class Main {
 	public static void main(String[] args) {
-		LinearDungeonsFactory factoryDungeons = new LinearDungeonsFactory(new DefaultRoomFactory(), 100);
+		LinearDungeonsFactory factoryDungeons = new LinearDungeonsFactory(new DefaultRoomFactory(), 5);
 		Room r = factoryDungeons.create();
-		System.out.println(r.printAllExit() );
 		
 		Player player = new Player("Kevin");
 		Game game = new Game(new Dungeon(player, r ));

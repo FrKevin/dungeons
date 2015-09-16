@@ -33,7 +33,7 @@ public class LinearDungeonsFactory implements DungeonFactoryAbstract{
 			tmp.setRoom(issues[rand1], new BasicRoom());
 			tmp = tmp.getRoom(issues[rand1]);
 			tmp.setRoom(issues[rand2], new BasicRoom());
-			tmp = tmp.getRoom(issues[rand1]);
+			tmp = tmp.getRoom(issues[rand2]);
 			index+=2;
 			System.out.println("rand1="+ issues[rand1] +" et rand2 = "+ issues[rand2]);
 		}

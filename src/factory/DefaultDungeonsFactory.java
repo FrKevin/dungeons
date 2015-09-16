@@ -2,8 +2,13 @@ package factory;
 
 import java.util.Random;
 
+import javax.swing.plaf.basic.BasicRadioButtonMenuItemUI;
+
+import rooms.BasicRoom;
 import rooms.EnterRoom;
+import rooms.ExitRoom;
 import rooms.Room;
+import rooms.TrapRoom;
 
 public class DefaultDungeonsFactory implements DungeonFactoryAbstract{
 
@@ -18,28 +23,9 @@ public class DefaultDungeonsFactory implements DungeonFactoryAbstract{
 	@Override
 	public Room create() {
 		Room rooms = new EnterRoom();
-		String [] issues = {"up", "down", "left", "right","ascend","toto"};
-		int number = 0;
-		int issue = RAND.nextInt(4);
-		rooms.setRoom( issues[issue], abstractFactory.createRoom());
-		Room tmp = rooms.getRoom(issues[issue]);
-		while( number <= numberOfRooms){
-			for(int i=0; i< 6; i++){
-				boolean hasIssue = issue == 5;
-				if(hasIssue == true){
-					boolean isTrap = RAND.nextInt(10) == 5;
-					if( isTrap == true ){
-						tmp.setRoom(issues[i], abstractFactory.createTrap());
-					}
-					else{
-						System.out.println(tmp);
-						tmp.setRoom(issues[i], abstractFactory.createRoom() );
-					}
-					tmp = tmp.getRoom(issues[i]);
-				}
-			}
-			number++;
-		}
+		rooms.setRoom("north", new BasicRoom());	
+		rooms.getRoom("north").setRoom("west", new TrapRoom());
+		rooms.getRoom("north").setRoom("north", new ExitRoom());
 		return rooms;
 	}
 	

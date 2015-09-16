@@ -4,8 +4,7 @@ public class ExitRoom extends Room{
 
 	@Override
 	public String toString() {
-		// TODO Auto-generated method stub
-		return null;
+		return "Fin dungeons";
 	}
 
 	@Override

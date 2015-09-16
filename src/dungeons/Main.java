@@ -1,18 +1,20 @@
 package dungeons;
 
 import factory.DefaultRoomFactory;
-import factory.FactoryDungeons;
+import factory.DefaultDungeonsFactory;
+import factory.LinearDungeonsFactory;
 import rooms.EnterRoom;
 import rooms.Room;
 
 public class Main {
 	public static void main(String[] args) {
-		/*Player player = new Player("Kevin");
-		Game game = new Game(new Dungeon(player, new EnterRoom() ));
-		game.run();*/
-		FactoryDungeons factoryDungeons = new FactoryDungeons(new DefaultRoomFactory());
+		LinearDungeonsFactory factoryDungeons = new LinearDungeonsFactory(new DefaultRoomFactory(), 100);
 		Room r = factoryDungeons.create();
 		System.out.println(r.printAllExit() );
+		
+		Player player = new Player("Kevin");
+		Game game = new Game(new Dungeon(player, r ));
+		game.run();
 		
 	}
 }

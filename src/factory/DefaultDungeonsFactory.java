@@ -5,13 +5,13 @@ import java.util.Random;
 import rooms.EnterRoom;
 import rooms.Room;
 
-public class FactoryDungeons implements DungeonFactoryAbstract{
+public class DefaultDungeonsFactory implements DungeonFactoryAbstract{
 
     private static final Random RAND = new Random();
 	private final RoomFactoryAbstract abstractFactory;
 	private final int numberOfRooms = 10;
 	
-	public FactoryDungeons(RoomFactoryAbstract abstractFactory){
+	public DefaultDungeonsFactory(RoomFactoryAbstract abstractFactory){
 		this.abstractFactory = abstractFactory;
 	}
 

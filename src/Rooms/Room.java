@@ -5,16 +5,7 @@ import java.util.HashMap;
 public abstract class Room {
 	protected HashMap<String, Room> rooms = new HashMap<>();
 	
-	
-	public Room interpretCommand(StringBuffer stringBuffer){
-		if( rooms.containsKey(stringBuffer.toString())){
-			System.out.println(rooms.get(stringBuffer.toString()));
-			return rooms.get(stringBuffer.toString());
-		}
-		return this;
-	}
-	
-	public String printAllExit(){
+	public String showIssue(){
 		return rooms.toString();
 	}
 	
@@ -26,7 +17,10 @@ public abstract class Room {
 		rooms.put(direction, room);
 	}
 	
-	public Room getRoom(String direction){
-		return rooms.get(direction);
+	public Room getRoom(String string){
+		if( rooms.containsKey(string)){
+			return rooms.get(string);
+		}
+		return this;
 	}
 }

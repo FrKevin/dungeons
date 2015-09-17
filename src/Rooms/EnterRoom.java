@@ -4,7 +4,7 @@ public class EnterRoom extends Room{
 
 	@Override
 	public String toString() {
-		return "Your are in the entrance room.";
+		return " entrance room.";
 	}
 
 	@Override

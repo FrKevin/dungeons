@@ -19,7 +19,7 @@ public class LinearDungeonsFactory implements DungeonFactoryAbstract{
 	
 	@Override
 	public Room create() {
-		String [] issues = {"north", "south", "west", "east","up","down"};
+		String[] issues = {"north", "south", "west", "east","up","down"};
 		int index = 0; 
 		Room rooms = new EnterRoom();
 		int rand1 = 0;

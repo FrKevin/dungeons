@@ -1,15 +1,17 @@
 package factory;
 
+import entity.monster.Spider;
 import rooms.BasicRoom;
 import rooms.ExitRoom;
+import rooms.MonsterRoom;
 import rooms.Room;
-import rooms.TrapRoom;
 
 public class DefaultRoomFactory implements RoomFactoryAbstract{
 
 	@Override
 	public Room createTrap() {
-		return new TrapRoom();
+		
+		return new MonsterRoom(new Spider());
 	}
 
 	@Override

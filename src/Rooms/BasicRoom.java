@@ -1,5 +1,7 @@
 package rooms;
 
+import entity.Player;
+
 public class BasicRoom extends Room{
 
 	@Override
@@ -11,5 +13,8 @@ public class BasicRoom extends Room{
 	public boolean canEnert() {
 		return true;
 	}
+
+	@Override
+	public void event(Player player) {}
 
 }

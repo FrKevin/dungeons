@@ -12,6 +12,8 @@ public class Main {
 		
 		Player player = new Player("Kevin");
 		Game game = new Game(new Dungeon(player, r ));
+		//Clear memory
+		factoryDungeons = null;
 		game.run();
 	}
 }

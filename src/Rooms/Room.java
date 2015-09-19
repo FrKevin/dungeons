@@ -2,16 +2,24 @@ package rooms;
 
 import java.util.HashMap;
 
+import entity.Player;
+
 public abstract class Room {
 	protected HashMap<String, Room> rooms = new HashMap<>();
+	public boolean event = true;
 	
 	public String showExit(){
-		String issue = "Il y a " + rooms.size() + " sortie(s).\n";
+		String issue = "\nThere are " + rooms.size() + " output(s).\n";
+		if(rooms.size() == 1){
+			issue = "\nThere is an output\n";
+		}
+		
 		for(String s: rooms.keySet()){
-			issue += "\t °"+s+"\n";
+			issue += "\t°"+s+"\n";
 		}
 		return issue;
 	}
+	public abstract void event(Player player);
 	
 	public abstract String toString();
 	

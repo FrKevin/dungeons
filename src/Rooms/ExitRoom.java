@@ -1,10 +1,12 @@
 package rooms;
 
+import entity.Player;
+
 public class ExitRoom extends Room{
 
 	@Override
 	public String toString() {
-		return "Fin dungeons";
+		return "final room.";
 	}
 
 	@Override
@@ -15,4 +17,7 @@ public class ExitRoom extends Room{
 	public boolean isExit(){
 		return true;
 	}
+
+	@Override
+	public void event(Player player) {}
 }

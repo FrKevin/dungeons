@@ -3,7 +3,7 @@ package entity;
 public abstract class Entity {
 	protected int healthPoints;
 	protected String name;
-	
+
 	public Entity(int healthPoints, String name){
 		this.healthPoints = healthPoints;
 		this.name = name;
@@ -18,7 +18,6 @@ public abstract class Entity {
 	}
 	
 	public boolean death(){
-		return healthPoints >= 0;
+		return healthPoints <= 0;
 	}
-
 }

@@ -30,14 +30,22 @@ public class LinearDungeonsFactory implements DungeonFactoryAbstract{
 			rand2 = RAND.nextInt(6);
 			while(rand2 == (rand1+1))
 				rand2 = RAND.nextInt(6);
-			tmp.setRoom(issues[rand1], new BasicRoom());
+			boolean trapRoom = ( RAND.nextInt(2) == 1);
+			if(trapRoom)
+				tmp.setRoom(issues[rand1], abstractFactory.createTrap());
+			else
+				tmp.setRoom(issues[rand1], abstractFactory.createRoom());
 			tmp = tmp.getRoom(issues[rand1]);
-			tmp.setRoom(issues[rand2], new BasicRoom());
+			trapRoom = ( RAND.nextInt(2) == 1);
+			if(trapRoom)
+				tmp.setRoom(issues[rand2], abstractFactory.createTrap());
+			else
+				tmp.setRoom(issues[rand2], abstractFactory.createRoom());
 			tmp = tmp.getRoom(issues[rand2]);
 			index+=2;
 			System.out.println("rand1="+ issues[rand1] +" et rand2 = "+ issues[rand2]);
 		}
-		tmp.setRoom("north", new ExitRoom());
+		tmp.setRoom("north", abstractFactory.createExitRoom());
 		return rooms;
 	}
 

@@ -69,11 +69,16 @@ public class Dungeon {
 		}
 	}
 	
+	public void isFinished(){
+		gameIsFinished = currentRoom.isExit() || player.death();
+	}
+	
 	public void start(){
 		System.out.println("You are in "+ currentRoom);
 		do{
 			interpretCommand();
-			gameIsFinished = currentRoom.isExit();
+			currentRoom.event(player);
+			isFinished();
 		}while(gameIsFinished == false);
 		System.out.println("========== FIN ==========");
 	}

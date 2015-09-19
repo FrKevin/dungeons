@@ -1,6 +1,7 @@
 package dungeons;
 
 import rooms.Room;
+import entity.Player;
 import factory.DefaultRoomFactory;
 import factory.LinearDungeonsFactory;
 

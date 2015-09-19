@@ -2,6 +2,7 @@ package dungeons;
 
 import java.util.Scanner;
 
+import entity.Player;
 import rooms.Room;
 
 public class Dungeon {

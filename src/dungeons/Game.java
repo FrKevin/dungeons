@@ -1,5 +1,7 @@
 package dungeons;
 
+import entity.Player;
+
 public class Game {
 	protected Dungeon dungeon;
 	protected Player player; 

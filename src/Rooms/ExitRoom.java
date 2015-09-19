@@ -11,5 +11,8 @@ public class ExitRoom extends Room{
 	public boolean canEnert() {
 		return true;
 	}
-
+	@Override
+	public boolean isExit(){
+		return true;
+	}
 }

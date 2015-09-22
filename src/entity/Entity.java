@@ -1,7 +1,7 @@
 package entity;
 
 public abstract class Entity {
-	protected int healthPoints;
+	protected double healthPoints;
 	protected String name;
 
 	public Entity(int healthPoints, String name){
@@ -9,11 +9,11 @@ public abstract class Entity {
 		this.name = name;
 	}
 	
-	public int getHealthPoints(){
+	public double getHealthPoints(){
 		return healthPoints;
 	}
 	
-	public void setHealthPoints(int healthPoints){
+	public void setHealthPoints(double healthPoints){
 		this.healthPoints = healthPoints;
 	}
 	

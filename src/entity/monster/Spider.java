@@ -5,10 +5,10 @@ import entity.Monster;
 public class Spider extends Monster{
 	
 	public Spider(){
-		this(16, 2);
+		this(16, 2.5);
 	}
 	
-	public Spider(int healthPoints, int damage){
+	public Spider(int healthPoints, damage damage){
 		super(healthPoints, "Spider", damage);
 	}
 	

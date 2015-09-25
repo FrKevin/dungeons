@@ -1,21 +1,23 @@
 package rooms;
 
-import entity.Player;
+import Player.Player;
 
-public class TrapRoom extends Room{
+public class ExitRoom extends Room{
 
 	@Override
 	public String toString() {
-		return "Trap Room";
+		return "final room.";
 	}
 
 	@Override
 	public boolean canEnert() {
 		return true;
 	}
+	@Override
+	public boolean isExit(){
+		return true;
+	}
 
 	@Override
 	public void event(Player player) {}
-
-
 }

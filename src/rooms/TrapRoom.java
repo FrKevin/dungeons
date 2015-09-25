@@ -1,12 +1,12 @@
 package rooms;
 
-import entity.Player;
+import Player.Player;
 
-public class EnterRoom extends Room{
+public class TrapRoom extends Room{
 
 	@Override
 	public String toString() {
-		return " entrance room.";
+		return "Trap Room";
 	}
 
 	@Override
@@ -16,5 +16,6 @@ public class EnterRoom extends Room{
 
 	@Override
 	public void event(Player player) {}
+
 
 }

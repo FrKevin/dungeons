@@ -2,11 +2,15 @@ package rooms;
 
 import java.util.HashMap;
 
-import entity.Player;
+import entity.Monster;
+import Player.Player;
 
 public abstract class Room {
 	protected HashMap<String, Room> rooms = new HashMap<>();
 	public boolean event = true;
+	
+	public boolean haveMonster;
+	public Monster monster;
 	
 	public String showExit(){
 		String issue = "\nThere are " + rooms.size() + " output(s).\n";
@@ -15,10 +19,11 @@ public abstract class Room {
 		}
 		
 		for(String s: rooms.keySet()){
-			issue += "\tÂ°"+s+"\n";
+			issue += "\t°"+s+"\n";
 		}
 		return issue;
 	}
+
 	public abstract void event(Player player);
 	
 	public abstract String toString();
@@ -46,5 +51,10 @@ public abstract class Room {
 			return rooms.get(string);
 		}
 		return this;
+	}
+	
+	public void setMonster(Monster monster){
+		this.monster = monster;
+		this.haveMonster = true;
 	}
 }

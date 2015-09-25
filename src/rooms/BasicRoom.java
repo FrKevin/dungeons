@@ -1,6 +1,6 @@
 package rooms;
 
-import entity.Player;
+import Player.Player;
 
 public class BasicRoom extends Room{
 

@@ -2,18 +2,16 @@ package dungeons;
 
 import java.util.Scanner;
 
-import entity.Player;
+import Player.Player;
 import rooms.Room;
 
 public class Dungeon {
 	
 	protected Room currentRoom;
-	protected Player player;
 	protected boolean gameIsFinished;
 	protected final Scanner scanner;
 	
-	public Dungeon(Player player, Room currentRoom){
-		this.player = player;
+	public Dungeon(Room currentRoom){
 		this.currentRoom = currentRoom;
 		this.gameIsFinished = false;
 		this.scanner = new Scanner(System.in);
@@ -69,17 +67,11 @@ public class Dungeon {
 		}
 	}
 	
-	public void isFinished(){
-		gameIsFinished = currentRoom.isExit() || player.death();
+	public void run(){
+		interpretCommand();
 	}
 	
-	public void start(){
-		System.out.println("You are in "+ currentRoom);
-		do{
-			interpretCommand();
-			currentRoom.event(player);
-			isFinished();
-		}while(gameIsFinished == false);
-		System.out.println("========== FIN ==========");
+	public boolean isExit() {
+		return currentRoom.isExit();
 	}
 }

@@ -1,19 +1,18 @@
 package dungeons;
 
+import Player.Player;
 import rooms.Room;
-import entity.Player;
 import factory.DefaultRoomFactory;
 import factory.LinearDungeonsFactory;
 
 public class Main {
 	public static void main(String[] args) {
 		LinearDungeonsFactory factoryDungeons = new LinearDungeonsFactory(new DefaultRoomFactory(), 5);
-		Room r = factoryDungeons.create();
-		
-		Player player = new Player("Kevin");
-		Game game = new Game(new Dungeon(player, r ));
+		Room room = factoryDungeons.create();
+
+		Game game = new Game(new Dungeon(room), new Player("Kevin"));
 		//Clear memory
 		factoryDungeons = null;
 		game.run();
-	}
+	}	
 }

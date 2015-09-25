@@ -2,9 +2,9 @@ package entity;
 
 public abstract class Monster extends Entity{
 	private String [] drop;
-	private int damage;
+	private double damage;
 	
-	public Monster(int healthPoints, String name, int damage) {
+	public Monster(int healthPoints, String name, double damage) {
 		super(healthPoints, name);
 		this.damage = damage;
 	}

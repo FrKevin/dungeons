@@ -1,10 +1,9 @@
 package dungeons;
 
-import factory.DefaultRoomFactory;
-import factory.DefaultDungeonsFactory;
-import factory.LinearDungeonsFactory;
-import rooms.EnterRoom;
 import rooms.Room;
+import entity.Player;
+import factory.DefaultRoomFactory;
+import factory.LinearDungeonsFactory;
 
 public class Main {
 	public static void main(String[] args) {
@@ -13,7 +12,8 @@ public class Main {
 		
 		Player player = new Player("Kevin");
 		Game game = new Game(new Dungeon(player, r ));
+		//Clear memory
+		factoryDungeons = null;
 		game.run();
-		
 	}
 }

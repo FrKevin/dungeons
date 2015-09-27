@@ -1,11 +1,11 @@
 package entity;
 
-import item.ItemSword;
 import item.Items;
+import item.weapons.Sword;
 
 public class Player extends Entity{
 	protected int score;
-	protected ItemSword sword;
+	protected Sword sword;
 	
 	public Player(String name){
 		this(20, name);

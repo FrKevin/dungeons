@@ -40,12 +40,13 @@ public class CommandeManager {
 		if(containsString(commandBuffer, "show")){
 			commandBuffer.delete (0, 5);
 			if( !checkArgument(commandBuffer.toString()) ){
-				if(commandBuffer.toString().compareTo("room") == 0)
+				if(commandBuffer.toString().compareTo("room") == 0){
 					System.out.println(Main.dungeon.getCurrentRoom().showExit());
-				else 
+					return true;
+				}
+				else
 					noCommandFound();
 			}
-			return true;
 		}
 		return false;
 	}
@@ -54,9 +55,8 @@ public class CommandeManager {
 		if(containsString(commandBuffer, "use")){
 			commandBuffer.delete (0, 4);
 			if( !checkArgument(commandBuffer.toString()) ){
-				
+				return true;
 			}
-			return true;
 		}
 		return false;
 	}
@@ -83,12 +83,15 @@ public class CommandeManager {
 	}
 	
 	public void interpretCommandAttack(Monster monster){
-		System.out.println("It's your turn, What do you do ?");
-		System.out.print("> ");
-		StringBuffer commandBuffer = new StringBuffer(scanner.nextLine().toLowerCase());
-		boolean commandeFound = use(commandBuffer) || show(commandBuffer) || attack(commandBuffer, monster);
-		if(!commandeFound){
-			noCommandFound();
-		}
+		boolean commandeFound;
+		do{
+			System.out.println("It's your turn, What do you do ?");
+			System.out.print("> ");
+			StringBuffer commandBuffer = new StringBuffer(scanner.nextLine().toLowerCase());
+			commandeFound = use(commandBuffer) || show(commandBuffer) || attack(commandBuffer, monster);
+			if(!commandeFound){
+				noCommandFound();
+			}
+		}while(!commandeFound);
 	}
 }

@@ -23,17 +23,21 @@ public abstract class Room {
 		}
 		return issue;
 	}
-
+	
+	public void eventMonster(Player player){
+		System.out.println("=========== Attack ==========");
+		while(!player.death() && !monster.death() ){
+			// your turn 
+			Main.commandeManager.interpretCommandAttack(monster);
+			// Monster turn
+			monster.attackEntity(player);
+		}
+		System.out.println("=============================");
+	}
+	
 	public void event(Player player){
 		if(haveMonster){
-			System.out.println("=========== Attack ==========");
-			while(!player.death() && !monster.death() ){
-				// your turn 
-				Main.commandeManager.interpretCommandAttack(monster);
-				// Monster turn
-				monster.attackEntity(player);
-			}
-			System.out.println("=============================");
+			eventMonster(player);
 			haveMonster= false;
 		}
 	}

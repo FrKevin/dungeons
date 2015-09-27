@@ -13,8 +13,4 @@ public class BasicRoom extends Room{
 	public boolean canEnert() {
 		return true;
 	}
-
-	@Override
-	public void event(Player player) {}
-
 }

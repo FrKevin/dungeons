@@ -3,15 +3,15 @@ package factory;
 import entity.monster.Spider;
 import rooms.BasicRoom;
 import rooms.ExitRoom;
-import rooms.MonsterRoom;
 import rooms.Room;
 
 public class DefaultRoomFactory implements RoomFactoryAbstract{
 
 	@Override
 	public Room createTrap() {
-		
-		return new MonsterRoom(new Spider());
+		Room room = new BasicRoom();
+		room.setMonster(new Spider());
+		return room;
 	}
 
 	@Override

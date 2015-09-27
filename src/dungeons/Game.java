@@ -1,17 +1,14 @@
 package dungeons;
 
-import manager.CommandeManager;
 import Player.Player;
 
 public class Game {
 	protected final Dungeon dungeon;
 	protected final Player player; 
-	protected final CommandeManager commandManager;
 	
 	public  Game(Dungeon dungeon, Player player){
 		this.dungeon = dungeon;
 		this.player = player;
-		this.commandManager = new CommandeManager();
 	}
 	
 	public void run(){

@@ -17,7 +17,4 @@ public class ExitRoom extends Room{
 	public boolean isExit(){
 		return true;
 	}
-
-	@Override
-	public void event(Player player) {}
 }

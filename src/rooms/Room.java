@@ -4,10 +4,10 @@ import java.util.HashMap;
 
 import entity.Monster;
 import Player.Player;
+import dungeons.Main;
 
 public abstract class Room {
 	protected HashMap<String, Room> rooms = new HashMap<>();
-	public boolean event = true;
 	
 	public boolean haveMonster;
 	public Monster monster;
@@ -19,12 +19,24 @@ public abstract class Room {
 		}
 		
 		for(String s: rooms.keySet()){
-			issue += "\t°"+s+"\n";
+			issue += "\t"+s+"\n";
 		}
 		return issue;
 	}
 
-	public abstract void event(Player player);
+	public void event(Player player){
+		if(haveMonster){
+			System.out.println("=========== Attack ==========");
+			while(!player.death() && !monster.death() ){
+				// your turn 
+				Main.commandeManager.interpretCommandAttack(monster);
+				// Monster turn
+				monster.attackEntity(player);
+			}
+			System.out.println("=============================");
+			haveMonster= false;
+		}
+	}
 	
 	public abstract String toString();
 	

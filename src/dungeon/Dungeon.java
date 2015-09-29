@@ -5,7 +5,7 @@ import room.Room;
 
 public class Dungeon {
 	
-	protected Integer nbRoom;
+	protected int nbRoom;
 	protected Room currentRoom;
 	
 	public Dungeon(int nbRoom, Room currentRoom) {

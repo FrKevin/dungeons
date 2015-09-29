@@ -15,7 +15,7 @@ public class Main {
 		//LinearDungeonsFactory factoryDungeons = new LinearDungeonsFactory(new DefaultRoomFactory(), 5);
 		
 		AbstractDungeonFactory factoryDungeons = new GeneratorDungeonFactory();
-		Dungeon dungeon = factoryDungeons.create();
+		dungeon = factoryDungeons.create();
 		
 		commandeManager = new CommandeManager();
 		//dungeon = new Dungeon(room);

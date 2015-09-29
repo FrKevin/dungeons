@@ -27,7 +27,6 @@ public class GeneratorDungeonFactory extends AbstractDungeonFactory {
 	
 	@Override
 	public Dungeon create() {
-		
 		return new Dungeon(nbRoomCreated, generateRooms());
 	}
 	

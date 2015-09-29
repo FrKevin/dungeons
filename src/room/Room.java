@@ -104,7 +104,7 @@ public abstract class Room {
 	
 	public Room getRoom(String string){
 		Door door;
-		if((door = checkExist(string)) != null)
+		if((door = checkExist(string.toUpperCase())) != null)
 			return door.getAdjacentRoom(this);
 		return this;
 	}

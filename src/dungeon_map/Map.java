@@ -37,6 +37,7 @@ public class Map extends JPanel {
         g2d.setRenderingHint(RenderingHints.KEY_ANTIALIASING,
         		RenderingHints.VALUE_ANTIALIAS_ON);
         
+        graphDispRoom(g2d, 0, 0);
         dispRoom(g2d, dungeon.getCurrentRoom(), Way.SOUTH, 0, 0);
     }
 

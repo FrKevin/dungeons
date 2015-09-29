@@ -28,7 +28,7 @@ public abstract class Room {
 	
 	public abstract String toString();
 	
-	public abstract boolean canEnert();
+	public abstract boolean canEnter();
 	
 	public boolean isExit(){
 		return false;

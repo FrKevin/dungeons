@@ -42,7 +42,7 @@ public class MonsterRoom extends Room{
 	}
 
 	@Override
-	public boolean canEnert() {
+	public boolean canEnter() {
 		return true;
 	}
 

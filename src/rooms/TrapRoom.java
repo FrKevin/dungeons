@@ -10,7 +10,7 @@ public class TrapRoom extends Room{
 	}
 
 	@Override
-	public boolean canEnert() {
+	public boolean canEnter() {
 		return true;
 	}
 

@@ -10,7 +10,7 @@ public class ExitRoom extends Room{
 	}
 
 	@Override
-	public boolean canEnert() {
+	public boolean canEnter() {
 		return true;
 	}
 	@Override

@@ -2,6 +2,7 @@ package manager;
 
 import java.util.Scanner;
 
+import dungeon_map.Map;
 import dungeon_map.Window;
 import entity.Monster;
 import main.Main;
@@ -47,7 +48,7 @@ public class CommandManager {
 				if(commandBuffer.toString().compareTo("inventory") == 0)
 					System.out.println(Main.player.showInventory());
 				if(commandBuffer.toString().compareTo("map") == 0)
-					new Window(500, 500, Main.dungeon);
+					new Window(500, 500, Main.dungeon, new Map(Main.dungeon));
 				else{
 					noCommandFound();
 					return false;

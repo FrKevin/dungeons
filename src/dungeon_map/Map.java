@@ -19,15 +19,19 @@ public class Map extends JPanel {
 	
     protected Window window;
     protected Dungeon dungeon;
+    protected Room firstRoom;
+    protected Room lastRoom;
     
     //protected final int borderSize = 1;
     protected final int stepX = 20;
     protected final int stepY = 20;
     
-    public Map(Window window, Dungeon dungeon) {
-    	this.window = window;
+    public Map(Dungeon dungeon) {
+    	//this.window = window;
     	this.dungeon = dungeon;
-    	this.setSize(window.getWidth(), window.getHeight());
+    	firstRoom = dungeon.getCurrentRoom();
+    	lastRoom = firstRoom;
+    	//this.setSize(window.getWidth(), window.getHeight());
     }
     
     @Override
@@ -37,8 +41,8 @@ public class Map extends JPanel {
         g2d.setRenderingHint(RenderingHints.KEY_ANTIALIASING,
         		RenderingHints.VALUE_ANTIALIAS_ON);
         
-        graphDispRoom(g2d, 0, 0);
-        dispRoom(g2d, dungeon.getCurrentRoom(), Way.SOUTH, 0, 0);
+        graphDispRoom(g2d, 0, 0, firstRoom);
+        dispRoom(g2d, firstRoom, Way.SOUTH, 0, 0);
     }
 
 	public void dispRoom(Graphics2D g2d, Room room, Way excludeWay, int w, int h) {
@@ -47,7 +51,7 @@ public class Map extends JPanel {
 			if(entry.getKey() != excludeWay) {
 	        	switch(entry.getKey()) {
 		        	case NORTH:
-		        		graphDispRoom(g2d, w, h-stepY);
+		        		graphDispRoom(g2d, w, h-stepY, entry.getValue().getAdjacentRoom(room));
 		        		dispRoom(
 	        				g2d, 
 	        				entry.getValue().getAdjacentRoom(room), 
@@ -57,7 +61,7 @@ public class Map extends JPanel {
 		        		);
 		        		break;
 		        	case SOUTH:
-		        		graphDispRoom(g2d, w, h+stepY);
+		        		graphDispRoom(g2d, w, h+stepY, entry.getValue().getAdjacentRoom(room));
 		        		dispRoom(
 	        				g2d, 
 	        				entry.getValue().getAdjacentRoom(room), 
@@ -67,7 +71,7 @@ public class Map extends JPanel {
 		        		);
 		        		break;
 		        	case EAST:
-		        		graphDispRoom(g2d, w+stepX, h);
+		        		graphDispRoom(g2d, w+stepX, h, entry.getValue().getAdjacentRoom(room));
 		        		dispRoom(
 	        				g2d, 
 	        				entry.getValue().getAdjacentRoom(room), 
@@ -77,7 +81,7 @@ public class Map extends JPanel {
 		        		);
 		        		break;
 		        	case WEST:
-		        		graphDispRoom(g2d, w-stepX, h);
+		        		graphDispRoom(g2d, w-stepX, h, entry.getValue().getAdjacentRoom(room));
 		        		dispRoom(
 	        				g2d, 
 	        				entry.getValue().getAdjacentRoom(room), 
@@ -93,7 +97,7 @@ public class Map extends JPanel {
 		
 	}
 	
-	public void graphDispRoom(Graphics2D g2d, int w, int h) {
+	public void graphDispRoom(Graphics2D g2d, int w, int h, Room room) {
 		
 		Rectangle2D rect = new Rectangle2D.Double(
 				getWidth()/2-stepX/2 + w, 
@@ -102,11 +106,30 @@ public class Map extends JPanel {
         		stepY
 	        );
 		
-		g2d.setColor(Color.blue);
+		if(room == dungeon.getCurrentRoom())
+			g2d.setColor(Color.red);
+		else
+			g2d.setColor(Color.blue);
         g2d.fill(rect);
 		
         g2d.setColor(Color.white);
         g2d.draw(rect);
 	}
+	
+	public boolean isRoomChanged() {
+		if(lastRoom != dungeon.getCurrentRoom()) {
+			lastRoom = dungeon.getCurrentRoom();
+			return true;
+		}
+		return false;
+	}
+	
+	/*public Room getLastRoom() {
+		return lastRoom;
+	}
+	
+	public void setLastRoom(Room room) {
+		lastRoom = room;
+	}*/
 	
 }

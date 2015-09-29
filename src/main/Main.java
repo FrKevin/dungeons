@@ -1,6 +1,8 @@
 package main;
 
 import dungeon.Dungeon;
+import dungeon_map.Map;
+import dungeon_map.Window;
 import entity.Player;
 import factory.AbstractDungeonFactory;
 import factory.dungeon.GeneratorDungeonFactory;
@@ -28,6 +30,7 @@ public class Main {
 		Game game = new Game(dungeon, player);
 		//Clear memory
 		factoryDungeons = null;
+		
 		game.run();
 	}	
 }

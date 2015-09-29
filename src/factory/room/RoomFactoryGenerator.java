@@ -23,7 +23,6 @@ public class RoomFactoryGenerator {
 	protected Map<String, Map<String, Entity>> entities;
 	
 	public RoomFactoryGenerator(int maxRoom) {
-		
 		this.maxRoom = maxRoom;
 		this.nbRoomCreated = 1;
 	}

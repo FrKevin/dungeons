@@ -14,7 +14,7 @@ public class Main {
 	public static void main(String[] args) {
 		//LinearDungeonsFactory factoryDungeons = new LinearDungeonsFactory(new DefaultRoomFactory(), 5);
 		
-		AbstractDungeonFactory factoryDungeons = new GeneratorDungeonFactory();
+		AbstractDungeonFactory factoryDungeons = new GeneratorDungeonFactory(50);
 		dungeon = factoryDungeons.create();
 		
 		commandeManager = new CommandeManager();

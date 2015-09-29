@@ -21,8 +21,12 @@ public class GeneratorDungeonFactory extends AbstractDungeonFactory {
 	protected RoomFactoryGenerator roomFactory;
 	//protected Room currentRoom;
 	
-	public GeneratorDungeonFactory() {
-		
+	public GeneratorDungeonFactory(){
+		this(20);
+	}
+	
+	public GeneratorDungeonFactory(int maxRoom) {
+		this.maxRoom = maxRoom;
 	}
 	
 	@Override
@@ -31,7 +35,6 @@ public class GeneratorDungeonFactory extends AbstractDungeonFactory {
 	}
 	
 	public Room generateRooms() {
-		maxRoom = 20;
 		nbRoomCreated = 1;
 		
 		roomFactory = new RoomFactoryGenerator(maxRoom);

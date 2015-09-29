@@ -1,7 +1,7 @@
 package main;
 
 import dungeon.Dungeon;
-import player.Player;
+import entity.Player;
 
 public class Game {
 	protected final Dungeon dungeon;

@@ -2,6 +2,7 @@ package manager;
 
 import java.util.Scanner;
 
+import dungeon_map.Window;
 import entity.Monster;
 import main.Main;
 
@@ -41,12 +42,17 @@ public class CommandManager {
 		if(containsString(commandBuffer, "show")){
 			commandBuffer.delete (0, 5);
 			if( !checkArgument(commandBuffer.toString()) ){
-				if(commandBuffer.toString().compareTo("room") == 0){
+				if(commandBuffer.toString().compareTo("room") == 0)
 					System.out.println(Main.dungeon.getCurrentRoom().showExit());
-					return true;
-				}
-				else
+				if(commandBuffer.toString().compareTo("inventory") == 0)
+					System.out.println(Main.player.showInventory());
+				if(commandBuffer.toString().compareTo("map") == 0)
+					new Window(500, 500, Main.dungeon);
+				else{
 					noCommandFound();
+					return false;
+				}
+				return true;
 			}
 		}
 		return false;

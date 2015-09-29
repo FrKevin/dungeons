@@ -5,11 +5,8 @@ import room.Room;
 public abstract class Entity implements Cloneable {
 	protected double healthPoints;
 	protected String name;
-
-	protected Room room;
 	
-	public Entity(Room room, int healthPoints, String name) {
-		this.room = room;
+	public Entity(int healthPoints, String name) {
 		this.healthPoints = healthPoints;
 		this.name = name;
 	}

@@ -1,28 +1,33 @@
 package entity;
 
-import item.Items;
+import item.Inventory;
 import item.weapons.Sword;
-import room.Room;
 
 public class Player extends Entity{
 	protected int score;
-	protected Sword sword;
+	protected Sword arms;
+	protected Inventory inventory;
 	
-	public Player(Room room, String name){
-		this(room, 20, name);
-		sword = Items.wooden_sword;
+	public Player(String name){
+		this(20, name);
 	}
 	
-	public Player(Room room, int healthPoints, String name){
-		super(room, healthPoints, name);
+	public Player(int healthPoints, String name){
+		super(healthPoints, name);
 		this.score = 0;
+		arms = new Sword("wooden_sword", 60, 5);
+		inventory = new Inventory();
 	}
 	
 	public void attack(Entity entity){
-		sword.attackEntity(entity);
+		arms.attackEntity(entity);
+	}
+	
+	public String showInventory(){
+		return inventory.toString();
 	}
 	
 	public String toString(){
-		return "Plyer " + name; 
+		return "Player " + name +", The inventory contains:\n\t" + inventory +"\n Your arms is: \n"+ arms; 
 	}
 }

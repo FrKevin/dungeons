@@ -5,12 +5,12 @@ import room.Room;
 
 public class Spider extends Monster{
 	
-	public Spider(Room room){
-		this(room, 16, 2);
+	public Spider(){
+		this(16, 2);
 	}
 	
-	public Spider(Room room, int healthPoints, int damage){
-		super(room, healthPoints, "Spider", damage);
+	public Spider(int healthPoints, int damage){
+		super(healthPoints, "Spider", damage);
 	}
 	
 	@Override

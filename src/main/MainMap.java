@@ -8,7 +8,7 @@ import factory.dungeon.GeneratorDungeonFactory;
 public class MainMap {
 
 	public static void main(String[] args) {
-		AbstractDungeonFactory factoryDungeons = new GeneratorDungeonFactory();
+		AbstractDungeonFactory factoryDungeons = new GeneratorDungeonFactory(50);
 		Dungeon dungeon = factoryDungeons.create();
 		
 		new Window(400, 400, dungeon);

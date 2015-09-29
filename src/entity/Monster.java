@@ -6,8 +6,8 @@ public abstract class Monster extends Entity{
 	private String [] drop;
 	private int damage;
 	
-	public Monster(Room room, int healthPoints, String name, int damage) {
-		super(room, healthPoints, name);
+	public Monster(int healthPoints, String name, int damage) {
+		super(healthPoints, name);
 		this.damage = damage;
 	}
 	

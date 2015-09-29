@@ -6,11 +6,11 @@ import java.util.Map.Entry;
 
 import entity.Entity;
 import entity.Monster;
+import entity.Player;
 import factory.room.RoomFactoryGenerator;
 import main.Main;
 import other.Door;
 import other.Way;
-import player.Player;
 import room.geninfo.RoomGenInfo;
 
 public abstract class Room {
@@ -104,8 +104,12 @@ public abstract class Room {
 	
 	public Room getRoom(String string){
 		Door door;
+<<<<<<< HEAD
 		if((door = checkExist(string)) != null) {
 			System.out.println(door + " - " + door.getAdjacentRoom(this));
+=======
+		if((door = checkExist(string.toUpperCase())) != null)
+>>>>>>> ac1b8243bc814f99714e263940c51127e1cbeb01
 			return door.getAdjacentRoom(this);
 		}
 		return this;

@@ -1,6 +1,6 @@
 package room.impl;
 
-import player.Player;
+import entity.Player;
 import room.Room;
 import room.geninfo.RoomGenInfo;
 

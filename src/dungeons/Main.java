@@ -1,9 +1,9 @@
 package dungeons;
 
 import Player.Player;
+import factory.dungeon.LinearDungeonsFactory;
+import factory.room.DefaultRoomFactory;
 import rooms.Room;
-import factory.DefaultRoomFactory;
-import factory.LinearDungeonsFactory;
 import manager.CommandeManager;
 
 public class Main {

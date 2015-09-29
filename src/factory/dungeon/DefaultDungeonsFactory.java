@@ -1,22 +1,24 @@
-package factory;
+package factory.dungeon;
 
 import java.util.Random;
 
 import javax.swing.plaf.basic.BasicRadioButtonMenuItemUI;
 
+import factory.AbstractDungeonFactory;
+import factory.AbstractRoomFactory;
 import rooms.BasicRoom;
 import rooms.EnterRoom;
 import rooms.ExitRoom;
 import rooms.Room;
 import rooms.TrapRoom;
 
-public class DefaultDungeonsFactory implements DungeonFactoryAbstract{
+public class DefaultDungeonsFactory extends AbstractDungeonFactory{
 
     private static final Random RAND = new Random();
-	private final RoomFactoryAbstract abstractFactory;
+	private final AbstractRoomFactory abstractFactory;
 	private final int numberOfRooms = 10;
 	
-	public DefaultDungeonsFactory(RoomFactoryAbstract abstractFactory){
+	public DefaultDungeonsFactory(AbstractRoomFactory abstractFactory){
 		this.abstractFactory = abstractFactory;
 	}
 

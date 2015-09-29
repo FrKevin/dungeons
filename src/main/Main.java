@@ -1,10 +1,12 @@
-package dungeons;
+package main;
 
-import Player.Player;
-import factory.dungeon.LinearDungeonsFactory;
+import factory.AbstractDungeonFactory;
+import factory.dungeon.GeneratorDungeonFactory;
+import factory.dungeon.LinearDungeonFactory;
 import factory.room.DefaultRoomFactory;
-import rooms.Room;
 import manager.CommandeManager;
+import player.Player;
+import room.Room;
 
 public class Main {
 	public static Dungeon dungeon;
@@ -12,12 +14,14 @@ public class Main {
 	public static Player player;
 	
 	public static void main(String[] args) {
-		LinearDungeonsFactory factoryDungeons = new LinearDungeonsFactory(new DefaultRoomFactory(), 5);
+		//LinearDungeonsFactory factoryDungeons = new LinearDungeonsFactory(new DefaultRoomFactory(), 5);
+		
+		AbstractDungeonFactory factoryDungeons = new GeneratorDungeonFactory();
 		Room room = factoryDungeons.create();
 		
 		commandeManager = new CommandeManager();
 		dungeon = new Dungeon(room);
-		player = new Player("Kevin");
+		player = new Player(room, "Kevin");
 		
 		Game game = new Game(dungeon, player);
 		//Clear memory

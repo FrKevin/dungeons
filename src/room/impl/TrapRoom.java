@@ -1,8 +1,15 @@
-package rooms;
+package room.impl;
 
-import Player.Player;
+import player.Player;
+import room.Room;
+import room.geninfo.RoomGenInfo;
 
 public class TrapRoom extends Room{
+
+	public TrapRoom(RoomGenInfo roomGenInfo) {
+		super(roomGenInfo);
+		// TODO Auto-generated constructor stub
+	}
 
 	@Override
 	public String toString() {

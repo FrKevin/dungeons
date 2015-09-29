@@ -2,15 +2,16 @@ package factory.room;
 
 import entity.monster.Spider;
 import factory.AbstractRoomFactory;
-import rooms.BasicRoom;
-import rooms.ExitRoom;
-import rooms.Room;
+import room.Room;
+import room.impl.BasicRoom;
+import room.impl.ExitRoom;
 
 public class DefaultRoomFactory extends AbstractRoomFactory{
 
 	@Override
 	public Room createRoom() {
-		return new BasicRoom();
+		//return new BasicRoom();
+		return null; //TO DO
 	}
 
 }

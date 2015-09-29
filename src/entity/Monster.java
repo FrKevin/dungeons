@@ -1,11 +1,13 @@
 package entity;
 
+import room.Room;
+
 public abstract class Monster extends Entity{
 	private String [] drop;
 	private int damage;
 	
-	public Monster(int healthPoints, String name, int damage) {
-		super(healthPoints, name);
+	public Monster(Room room, int healthPoints, String name, int damage) {
+		super(room, healthPoints, name);
 		this.damage = damage;
 	}
 	

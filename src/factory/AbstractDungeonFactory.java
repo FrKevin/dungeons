@@ -1,6 +1,6 @@
 package factory;
 
-import rooms.Room;
+import room.Room;
 
 public abstract class AbstractDungeonFactory {
 	

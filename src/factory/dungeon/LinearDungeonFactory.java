@@ -4,17 +4,17 @@ import java.util.Random;
 
 import factory.AbstractDungeonFactory;
 import factory.AbstractRoomFactory;
-import rooms.BasicRoom;
-import rooms.EnterRoom;
-import rooms.ExitRoom;
-import rooms.Room;
+import room.Room;
+import room.impl.BasicRoom;
+import room.impl.EnterRoom;
+import room.impl.ExitRoom;
 
-public class LinearDungeonsFactory extends AbstractDungeonFactory{
+public class LinearDungeonFactory extends AbstractDungeonFactory{
 	private final AbstractRoomFactory abstractFactory;
 	private final int numberOfRooms;
 	private static final Random RAND = new Random();
 	
-	public LinearDungeonsFactory(AbstractRoomFactory abstractFactory, int numberOfRooms){
+	public LinearDungeonFactory(AbstractRoomFactory abstractFactory, int numberOfRooms){
 		this.abstractFactory = abstractFactory;
 		this.numberOfRooms = numberOfRooms;
 	}

@@ -1,6 +1,6 @@
-package dungeons;
+package main;
 
-import Player.Player;
+import player.Player;
 
 public class Game {
 	protected final Dungeon dungeon;

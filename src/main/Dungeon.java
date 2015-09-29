@@ -1,10 +1,10 @@
-package dungeons;
+package main;
 
 import java.util.Scanner;
 
-import Player.Player;
 import manager.CommandeManager;
-import rooms.Room;
+import player.Player;
+import room.Room;
 
 public class Dungeon {
 	

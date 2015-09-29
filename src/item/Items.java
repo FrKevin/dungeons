@@ -1,6 +1,8 @@
 package item;
 
+import item.weapons.Sword;
+
 public class Items {
-	public static final ItemSword wooden_sword = new ItemSword("wooden_sword", 60, 5);
+	public static final Sword wooden_sword = new Sword("wooden_sword", 60, 5);
 	
 }

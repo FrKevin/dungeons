@@ -13,8 +13,4 @@ public class EnterRoom extends Room{
 	public boolean canEnter() {
 		return true;
 	}
-
-	@Override
-	public void event(Player player) {}
-
 }

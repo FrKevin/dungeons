@@ -5,6 +5,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import other.Config;
 import other.Utils;
 import other.Way;
 import room.RoomType;
@@ -22,7 +23,7 @@ public class MainRoomGenInfo extends RoomGenInfo {
 			mainWay = Way.values()[Utils.rnd.nextInt(Way.values().length)];
 		} while(mainWay == excludeWay);
 		
-		optionalRoomDistributor = new OptionalRoomDistributor(nbRoom-3, 3);
+		optionalRoomDistributor = new OptionalRoomDistributor(nbRoom-Config.optionalRoomNb, Config.optionalRoomNb);
 	}
 	
 	public Map<Way, RoomGenInfo> createWays(Way previousWay) {
@@ -74,7 +75,7 @@ public class MainRoomGenInfo extends RoomGenInfo {
 	
 	public Way genMainWay(Way reverseWay) {
 		//TO DO
-		if(Utils.rnd.nextInt(3) == 0) {
+		if(Utils.rnd.nextInt(Config.maxSide-1) == 0) {
 			Way nextWay;
 			do {
 				nextWay = Way.values()[Utils.rnd.nextInt(Way.values().length)];

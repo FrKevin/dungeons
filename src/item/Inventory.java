@@ -1,8 +1,6 @@
-package Player;
+package item;
 
 import java.util.ArrayList;
-
-import item.ItemStack;
 
 public class Inventory {
 	protected ArrayList<ItemStack> inventory;

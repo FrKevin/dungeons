@@ -1,5 +1,7 @@
 package entity;
 
+import room.Room;
+
 public abstract class Monster extends Entity{
 	private String [] drop;
 	private int damage;

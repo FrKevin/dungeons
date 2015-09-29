@@ -1,6 +1,7 @@
 package entity.monster;
 
 import entity.Monster;
+import room.Room;
 
 public class Spider extends Monster{
 	

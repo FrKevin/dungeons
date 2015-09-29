@@ -1,12 +1,24 @@
 package entity;
 
-public abstract class Entity {
+import room.Room;
+
+public abstract class Entity implements Cloneable {
 	protected double healthPoints;
 	protected String name;
-
-	public Entity(int healthPoints, String name){
+	
+	public Entity(int healthPoints, String name) {
 		this.healthPoints = healthPoints;
 		this.name = name;
+	}
+	
+	public Entity clone() {
+		try {
+			return (Entity)super.clone();
+		} catch (CloneNotSupportedException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return null;
 	}
 	
 	public double getHealthPoints(){

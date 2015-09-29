@@ -1,8 +1,9 @@
 package manager;
 
 import java.util.Scanner;
-import dungeons.Main;
+
 import entity.Monster;
+import main.Main;
 
 public class CommandeManager {
 	protected final Scanner scanner;

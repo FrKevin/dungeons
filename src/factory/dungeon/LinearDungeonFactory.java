@@ -1,25 +1,24 @@
-package factory;
+package factory.dungeon;
 
 import java.util.Random;
 
-import rooms.BasicRoom;
-import rooms.EnterRoom;
-import rooms.ExitRoom;
-import rooms.Room;
+import dungeon.Dungeon;
+import factory.AbstractDungeonFactory;
+import factory.AbstractRoomFactory;
 
-public class LinearDungeonsFactory implements DungeonFactoryAbstract{
-	private final RoomFactoryAbstract abstractFactory;
+public class LinearDungeonFactory extends AbstractDungeonFactory{
+	private final AbstractRoomFactory abstractFactory;
 	private final int numberOfRooms;
 	private static final Random RAND = new Random();
 	
-	public LinearDungeonsFactory(RoomFactoryAbstract abstractFactory, int numberOfRooms){
+	public LinearDungeonFactory(AbstractRoomFactory abstractFactory, int numberOfRooms){
 		this.abstractFactory = abstractFactory;
 		this.numberOfRooms = numberOfRooms;
 	}
 	
 	@Override
-	public Room create() {
-		String[] issues = {"north", "south", "west", "east","up","down"};
+	public Dungeon create() {
+		/*String[] issues = {"north", "south", "west", "east","up","down"};
 		int index = 0; 
 		Room rooms = new EnterRoom();
 		int rand1 = 0;
@@ -46,7 +45,8 @@ public class LinearDungeonsFactory implements DungeonFactoryAbstract{
 			System.out.println("rand1="+ issues[rand1] +" et rand2 = "+ issues[rand2]);
 		}
 		tmp.setRoom("north", abstractFactory.createExitRoom());
-		return rooms;
+		return rooms;*/
+		return null; // TO DO
 	}
 
 }

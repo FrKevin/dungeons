@@ -1,6 +1,7 @@
-package dungeons;
+package main;
 
-import Player.Player;
+import dungeon.Dungeon;
+import entity.Player;
 
 public class Game {
 	protected final Dungeon dungeon;

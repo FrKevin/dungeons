@@ -40,12 +40,15 @@ public class CommandeManager {
 		if(containsString(commandBuffer, "show")){
 			commandBuffer.delete (0, 5);
 			if( !checkArgument(commandBuffer.toString()) ){
-				if(commandBuffer.toString().compareTo("room") == 0){
+				if(commandBuffer.toString().compareTo("room") == 0)
 					System.out.println(Main.dungeon.getCurrentRoom().showExit());
-					return true;
-				}
-				else
+				if(commandBuffer.toString().compareTo("inventory") == 0)
+					System.out.println(Main.player.showInventory());
+				else{
 					noCommandFound();
+					return false;
+				}
+				return true;
 			}
 		}
 		return false;

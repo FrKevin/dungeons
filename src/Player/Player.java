@@ -1,28 +1,36 @@
 package Player;
 
+import java.util.ArrayList;
+
 import entity.Entity;
-import item.Items;
+import item.ItemStack;
 import item.weapons.Sword;
 
 public class Player extends Entity{
 	protected int score;
-	protected Sword sword;
+	protected Sword arms;
+	protected Inventory inventory;
 	
 	public Player(String name){
 		this(20, name);
-		sword = Items.wooden_sword;
+		inventory = new Inventory();
 	}
 	
 	public Player(int healthPoints, String name){
 		super(healthPoints, name);
 		this.score = 0;
+		arms = new Sword("wooden_sword", 60, 5);
 	}
 	
 	public void attack(Entity entity){
-		sword.attackEntity(entity);
+		arms.attackEntity(entity);
+	}
+	
+	public String showInventory(){
+		return inventory.toString();
 	}
 	
 	public String toString(){
-		return "Player " + name; 
+		return "Player " + name +", The inventory contains:\n\t" + inventory +"\n Your arms is: \n"+ arms; 
 	}
 }

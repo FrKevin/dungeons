@@ -14,7 +14,7 @@ public class Main {
 	public static void main(String[] args) {
 		LinearDungeonsFactory factoryDungeons = new LinearDungeonsFactory(new DefaultRoomFactory(), 5);
 		Room room = factoryDungeons.create();
-		
+	
 		commandeManager = new CommandeManager();
 		dungeon = new Dungeon(room);
 		player = new Player("Kevin");

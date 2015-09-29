@@ -1,5 +1,6 @@
 package main;
 
+import dungeon.Dungeon;
 import player.Player;
 
 public class Game {

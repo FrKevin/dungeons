@@ -2,15 +2,9 @@ package factory.dungeon;
 
 import java.util.Random;
 
-import javax.swing.plaf.basic.BasicRadioButtonMenuItemUI;
-
+import dungeon.Dungeon;
 import factory.AbstractDungeonFactory;
 import factory.AbstractRoomFactory;
-import room.Room;
-import room.impl.BasicRoom;
-import room.impl.EnterRoom;
-import room.impl.ExitRoom;
-import room.impl.TrapRoom;
 
 public class DefaultDungeonFactory extends AbstractDungeonFactory{
 
@@ -23,7 +17,7 @@ public class DefaultDungeonFactory extends AbstractDungeonFactory{
 	}
 
 	@Override
-	public Room create() {
+	public Dungeon create() {
 		/*Room rooms = new EnterRoom();
 		rooms.setRoom("north", new BasicRoom());	
 		rooms.getRoom("north").setRoom("west", new TrapRoom());

@@ -1,8 +1,8 @@
 package factory;
 
-import room.Room;
+import dungeon.Dungeon;
 
 public abstract class AbstractDungeonFactory {
 	
-	public abstract Room create();
+	public abstract Dungeon create();
 }

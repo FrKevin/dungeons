@@ -2,12 +2,9 @@ package factory.dungeon;
 
 import java.util.Random;
 
+import dungeon.Dungeon;
 import factory.AbstractDungeonFactory;
 import factory.AbstractRoomFactory;
-import room.Room;
-import room.impl.BasicRoom;
-import room.impl.EnterRoom;
-import room.impl.ExitRoom;
 
 public class LinearDungeonFactory extends AbstractDungeonFactory{
 	private final AbstractRoomFactory abstractFactory;
@@ -20,7 +17,7 @@ public class LinearDungeonFactory extends AbstractDungeonFactory{
 	}
 	
 	@Override
-	public Room create() {
+	public Dungeon create() {
 		/*String[] issues = {"north", "south", "west", "east","up","down"};
 		int index = 0; 
 		Room rooms = new EnterRoom();

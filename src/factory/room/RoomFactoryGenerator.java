@@ -6,11 +6,12 @@ import java.util.Map;
 
 import entity.Entity;
 import entity.geninfo.EntityGenerationDetails;
+import factory.AbstractRoomFactory;
 import room.Room;
 import room.geninfo.RoomGenInfo;
 import room.impl.BasicRoom;
 
-public class RoomFactoryGenerator {
+public class RoomFactoryGenerator extends AbstractRoomFactory {
 	
 	protected int maxRoom;
 	protected int nbRoomCreated;
@@ -26,6 +27,12 @@ public class RoomFactoryGenerator {
 		
 		this.maxRoom = maxRoom;
 		this.nbRoomCreated = 1;
+	}
+	
+	@Override
+	public Room createRoom() {
+		// TODO Auto-generated method stub
+		return null;
 	}
 	
 	public Room getNewRoom(RoomGenInfo roomGenInfo) {

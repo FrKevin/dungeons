@@ -5,10 +5,10 @@ import java.util.Scanner;
 import entity.Monster;
 import main.Main;
 
-public class CommandeManager {
+public class CommandManager {
 	protected final Scanner scanner;
 	
-	public CommandeManager(){
+	public CommandManager(){
 		this.scanner = new Scanner(System.in);
 	}
 	

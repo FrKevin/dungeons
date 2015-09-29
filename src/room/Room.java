@@ -95,7 +95,7 @@ public abstract class Room {
 	public Door checkExist(String str){
 		
 		for(Entry<Way, Door> entry : doors.entrySet()) {
-			if(entry.getKey().toString().equals(str))
+			if(entry.getKey().toString().toLowerCase().equals(str))
 				return entry.getValue();
 		}
 		System.out.println("No exit for this direction");
@@ -104,8 +104,10 @@ public abstract class Room {
 	
 	public Room getRoom(String string){
 		Door door;
-		if((door = checkExist(string)) != null)
+		if((door = checkExist(string)) != null) {
+			System.out.println(door + " - " + door.getAdjacentRoom(this));
 			return door.getAdjacentRoom(this);
+		}
 		return this;
 	}
 	

@@ -4,6 +4,7 @@ import java.awt.Color;
 import java.awt.Graphics;
 import java.awt.Graphics2D;
 import java.awt.RenderingHints;
+import java.awt.geom.Rectangle2D;
 import java.util.Map.Entry;
 
 import javax.swing.JPanel;
@@ -19,6 +20,7 @@ public class Map extends JPanel {
     protected Window window;
     protected Dungeon dungeon;
     
+    //protected final int borderSize = 1;
     protected final int stepX = 20;
     protected final int stepY = 20;
     
@@ -35,14 +37,6 @@ public class Map extends JPanel {
         g2d.setRenderingHint(RenderingHints.KEY_ANTIALIASING,
         		RenderingHints.VALUE_ANTIALIAS_ON);
         
-        g2d.setColor(Color.blue);
-        
-        g2d.fillRect(
-        		getWidth()/2-stepX/2, 
-        		getHeight()/2-stepY/2, 
-        		stepX, 
-        		stepY
-        	);
         dispRoom(g2d, dungeon.getCurrentRoom(), Way.SOUTH, 0, 0);
     }
 
@@ -99,11 +93,19 @@ public class Map extends JPanel {
 	}
 	
 	public void graphDispRoom(Graphics2D g2d, int w, int h) {
-		g2d.fillRect(
-        		getWidth()/2-stepX/2 + w, 
+		
+		Rectangle2D rect = new Rectangle2D.Double(
+				getWidth()/2-stepX/2 + w, 
         		getHeight()/2-stepY/2 + h, 
         		stepX, 
         		stepY
-        	);
+	        );
+		
+		g2d.setColor(Color.blue);
+        g2d.fill(rect);
+		
+        g2d.setColor(Color.white);
+        g2d.draw(rect);
 	}
+	
 }

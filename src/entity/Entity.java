@@ -1,7 +1,5 @@
 package entity;
 
-import room.Room;
-
 /**
  * The Entity implements Cloneable
  *

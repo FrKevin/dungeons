@@ -17,7 +17,11 @@ import room.Room;
 
 public class Map extends JPanel {
 	
-    protected Window window;
+    /**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+	protected Window window;
     protected Dungeon dungeon;
     protected Room firstRoom;
     protected Room lastRoom;

@@ -4,7 +4,6 @@ import java.util.ArrayList;
 import java.util.List;
 
 import factory.AbstractDoorFactory;
-import factory.room.RoomFactoryGenerator;
 import other.Button;
 import other.Door;
 import other.Utils;

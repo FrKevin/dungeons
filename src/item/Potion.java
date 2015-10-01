@@ -1,7 +1,6 @@
 package item;
 
 import entity.Entity;
-import entity.Player;
 import item.potion.Effect;
 
 public class Potion extends Item{

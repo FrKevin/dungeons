@@ -1,8 +1,6 @@
 package room.impl;
 
-import entity.Player;
 import room.Room;
-import room.geninfo.RoomGenInfo;
 
 public class BasicRoom extends Room{
 

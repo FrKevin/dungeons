@@ -4,33 +4,20 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Map.Entry;
 
-import entity.Entity;
 import entity.Monster;
 import entity.Player;
-import factory.room.RoomFactoryGenerator;
 import main.Main;
 import other.Door;
 import other.Way;
 
 public abstract class Room {
-	//protected HashMap<String, Room> rooms = new HashMap<>();
-	
 	public boolean haveMonster;
 	public Monster monster;
 	
-	protected Map<String, Map<String, Entity>> entities;
 	protected Map<Way, Door> doors;
 	
 	public Room() {
 		doors = new HashMap<>();
-	}
-	
-	public void init(RoomFactoryGenerator roomFactory) {
-		this.entities = roomFactory.getEntities();
-	}
-	
-	public Map<String, Map<String, Entity>> getEntities() {
-		return entities;
 	}
 	
 	public Map<Way, Door> getDoors() {
@@ -78,10 +65,6 @@ public abstract class Room {
 	public boolean isExit(){
 		return false;
 	}
-	
-	/*public void setRoom(String direction, Room room){
-		rooms.put(direction, room);
-	}*/
 	
 	public Door checkExist(String str){
 		

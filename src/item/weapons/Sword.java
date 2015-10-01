@@ -1,7 +1,6 @@
 package item.weapons;
 
 import entity.Entity;
-import item.Item;
 import item.ItemWithDurability;
 
 public class Sword extends ItemWithDurability{

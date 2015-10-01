@@ -31,6 +31,7 @@ public class Player extends Entity{
 	public void setScore(int score) {
 		this.score = score;
 	}
+	
 	public Sword getArms() {
 		return arms;
 	}
@@ -44,5 +45,8 @@ public class Player extends Entity{
 	
 	public String toString(){
 		return "Player " + name +", The inventory contains:\n\t" + inventory +"\n Your arms is: \n"+ arms; 
+	}
+	public Container getInventory() {
+		return inventory;
 	}
 }

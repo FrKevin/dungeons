@@ -8,16 +8,11 @@ import entity.Entity;
 import entity.geninfo.EntityGenerationDetails;
 import factory.AbstractRoomFactory;
 import room.Room;
-import room.geninfo.RoomGenInfo;
 import room.impl.BasicRoom;
 
 public class RoomFactoryGenerator extends AbstractRoomFactory {
-	
 	protected int maxRoom;
 	protected int nbRoomCreated;
-	
-	/*protected float hiddenDoorChance = 0.5f;
-	protected float lockedDoorChance = 0.5f;*/
 	
 	protected List<EntityGenerationDetails> entitiesGenerationDetails;
 	
@@ -29,24 +24,13 @@ public class RoomFactoryGenerator extends AbstractRoomFactory {
 	}
 	
 	public Room createRoom() {
-		
 		Room room = new BasicRoom();
-		
 		entities = new HashMap<>();
-		
 		entitiesGenerationDetails = new ArrayList<>();
-		/*entitiesGenerationDetails.add(
-			new EntityGenerationDetails(new Treasure(this, room), 2, 7)
-		);
-		entitiesGenerationDetails.add(
-			new EntityGenerationDetails(new Monster(this, room), 2, 7)
-		);*/
 		
 		for(int i = 0; i < entitiesGenerationDetails.size(); i++) {
-			
 			Map<String, Entity> tmp;
-			if((tmp = entities.get(entitiesGenerationDetails.get(i)
-					.getClassName())) == null) {
+			if((tmp = entities.get(entitiesGenerationDetails.get(i).getClassName())) == null) {
 				tmp = new HashMap<String, Entity>();
 				entities.put(
 					entitiesGenerationDetails.get(i).getClassName(), 
@@ -54,11 +38,8 @@ public class RoomFactoryGenerator extends AbstractRoomFactory {
 				);
 			}
 			
-			while(!entitiesGenerationDetails.get(i).isGenerationFinished()) {
-				
-				Entity entity = 
-						entitiesGenerationDetails.get(i).generateNewEntity();
-				
+			while(!entitiesGenerationDetails.get(i).isGenerationFinished()) {	
+				Entity entity = entitiesGenerationDetails.get(i).generateNewEntity();
 				tmp.put(
 					entity.getClass().getSimpleName()+
 					entitiesGenerationDetails.get(i).getGenCount(), 
@@ -66,21 +47,9 @@ public class RoomFactoryGenerator extends AbstractRoomFactory {
 				);
 			}
 		}
-		
-		room.init(this);
-		
 		return room;
 	}
-	
-	
-	/*public float getHiddenDoorChance() {
-		return hiddenDoorChance;
-	}
-	
-	public float getLockedDoorChance() {
-		return lockedDoorChance;
-	}*/
-	
+		
 	public Map<String, Map<String, Entity>> getEntities() {
 		return entities;
 	}

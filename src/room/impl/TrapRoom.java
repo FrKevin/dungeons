@@ -2,7 +2,6 @@ package room.impl;
 
 import entity.Player;
 import room.Room;
-import room.geninfo.RoomGenInfo;
 
 public class TrapRoom extends Room{
 

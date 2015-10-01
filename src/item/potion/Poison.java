@@ -1,7 +1,6 @@
 package item.potion;
 
 import entity.Entity;
-import entity.Player;
 
 public class Poison implements Effect{
 	

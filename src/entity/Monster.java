@@ -1,7 +1,5 @@
 package entity;
 
-import room.Room;
-
 /**
  * The monster extends Entity, it's all hostil entity
  *

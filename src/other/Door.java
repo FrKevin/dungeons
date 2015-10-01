@@ -22,27 +22,6 @@ public class Door {
 		rooms[1] = newRoom;
 	}
 	
-	
-	
-	public void randomGeneration(RoomFactoryGenerator roomFactory) {
-		if(Utils.rnd.nextFloat() <= roomFactory.getLockedDoorChance()) {
-			opened = false;
-			buttons.add(new Button(this) {
-				public void swt() {
-					Door.this.opened = true;
-				}
-			});
-		}
-		if(Utils.rnd.nextFloat() <= roomFactory.getHiddenDoorChance()) {
-			visible = false;
-			buttons.add(new Button(this) {
-				public void swt() {
-					Door.this.visible = true;
-				}
-			});
-		}
-	}
-	
 	/*public boolean setRoomPipe(Room room) {
 		
 		if(rooms[1] != null) {
@@ -70,6 +49,22 @@ public class Door {
 		if(rooms[0] != null && rooms[1] != null)
 			return true;
 		return false;
+	}
+	
+	public void setVisible(boolean b) {
+		visible = b;
+	}
+	
+	public void setOpened(boolean b) {
+		opened = b;
+	}
+	
+	public boolean getVisible() {
+		return visible;
+	}
+	
+	public boolean getOpened() {
+		return opened;
 	}
 	
 }

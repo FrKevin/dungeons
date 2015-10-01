@@ -66,7 +66,7 @@ public abstract class Room {
 		System.out.println("=========== Attack ==========");
 		while(!player.death() && !monster.death() ){
 			// your turn 
-			Main.commandeManager.interpretCommandAttack(monster);
+			Main.commandManager.interpretCommandAttack(monster);
 			// Monster turn
 			monster.attackEntity(player);
 		}

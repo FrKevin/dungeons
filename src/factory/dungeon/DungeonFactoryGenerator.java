@@ -5,6 +5,7 @@ import java.util.Map.Entry;
 
 import dungeon.Dungeon;
 import factory.AbstractDungeonFactory;
+import factory.door.DoorFactoryGenerator;
 import factory.room.RoomFactoryGenerator;
 import other.Door;
 import other.Utils;
@@ -13,19 +14,20 @@ import room.Room;
 import room.geninfo.MainRoomGenInfo;
 import room.geninfo.RoomGenInfo;
 
-public class GeneratorDungeonFactory extends AbstractDungeonFactory {
+public class DungeonFactoryGenerator extends AbstractDungeonFactory {
 	
 	protected int maxRoom;
 	protected int nbRoomCreated;
 	
 	protected RoomFactoryGenerator roomFactory;
+	protected DoorFactoryGenerator doorFactory;
 	//protected Room currentRoom;
 	
-	public GeneratorDungeonFactory(){
+	public DungeonFactoryGenerator(){
 		this(20);
 	}
 	
-	public GeneratorDungeonFactory(int maxRoom) {
+	public DungeonFactoryGenerator(int maxRoom) {
 		this.maxRoom = maxRoom;
 	}
 	
@@ -38,6 +40,7 @@ public class GeneratorDungeonFactory extends AbstractDungeonFactory {
 		nbRoomCreated = 1;
 		
 		roomFactory = new RoomFactoryGenerator(maxRoom);
+		doorFactory = new DoorFactoryGenerator();
 		
 		Room firstRoom = roomFactory.getNewRoom(new MainRoomGenInfo(maxRoom, Utils.reverseWay(Way.NORTH)));
 		firstRoom.setDoor(Utils.reverseWay(Way.NORTH), new Door());
@@ -55,7 +58,8 @@ public class GeneratorDungeonFactory extends AbstractDungeonFactory {
 			System.out.println(roomGenInfoEntry.getKey()+" info "+roomGenInfoEntry.getValue());
 			Room newRoom = roomFactory.getNewRoom(roomGenInfoEntry.getValue()); // on passe roomGenInfo
 			
-			Door newDoor = new Door(room, newRoom);
+			//Door newDoor = new Door(room, newRoom);
+			Door newDoor = doorFactory.createDoor(room, newRoom);
 			
 			room.setDoor(roomGenInfoEntry.getKey(), newDoor);
 			newRoom.setDoor(Utils.reverseWay(roomGenInfoEntry.getKey()), newDoor);

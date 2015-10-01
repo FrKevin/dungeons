@@ -4,12 +4,12 @@ import dungeon.Dungeon;
 import dungeon_map.Map;
 import dungeon_map.Window;
 import factory.AbstractDungeonFactory;
-import factory.dungeon.GeneratorDungeonFactory;
+import factory.dungeon.DungeonFactoryGenerator;
 
 public class MainMap {
 
 	public static void main(String[] args) {
-		AbstractDungeonFactory factoryDungeons = new GeneratorDungeonFactory(50);
+		AbstractDungeonFactory factoryDungeons = new DungeonFactoryGenerator(50);
 		Dungeon dungeon = factoryDungeons.create();
 		
 		Map map = new Map(dungeon);

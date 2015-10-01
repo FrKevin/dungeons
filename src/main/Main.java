@@ -1,29 +1,24 @@
 package main;
 
 import dungeon.Dungeon;
-import dungeon_map.Map;
-import dungeon_map.Window;
 import entity.Player;
 import factory.AbstractDungeonFactory;
-import factory.dungeon.GeneratorDungeonFactory;
-import factory.dungeon.LinearDungeonFactory;
-import factory.room.DefaultRoomFactory;
+import factory.dungeon.DungeonFactoryGenerator;
 import manager.CommandManager;
-import room.Room;
 
 public class Main {
 	public static Dungeon dungeon;
-	public static CommandManager commandeManager;
+	public static CommandManager commandManager;
 	public static Player player;
 	
 	public static void main(String[] args) {
 		//LinearDungeonsFactory factoryDungeons = new LinearDungeonsFactory(new DefaultRoomFactory(), 5);
 		
 
-		AbstractDungeonFactory factoryDungeons = new GeneratorDungeonFactory(50);
+		AbstractDungeonFactory factoryDungeons = new DungeonFactoryGenerator(50);
 		dungeon = factoryDungeons.create();
 		
-		commandeManager = new CommandManager();
+		commandManager = new CommandManager();
 		//dungeon = new Dungeon(room);
 		player = new Player("Kevin");
 		

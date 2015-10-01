@@ -23,7 +23,7 @@ public class Dungeon {
 	
 	public void run(){
 		currentRoom.event(Main.player);
-		Main.commandeManager.interpretCommand();
+		Main.commandManager.interpretCommand();
 	}
 	
 	public boolean isExit() {

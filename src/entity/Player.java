@@ -11,7 +11,13 @@ public class Player extends Entity{
 	public Player(String name){
 		this(20, name);
 	}
-	
+	/**
+	 * 
+	 * @param healthPoints
+	 * 		the life for the Entity
+	 * @param name
+	 * 		the name of Entity
+	 */
 	public Player(int healthPoints, String name){
 		super(healthPoints, name);
 		this.score = 0;
@@ -19,6 +25,15 @@ public class Player extends Entity{
 		inventory = new Inventory();
 	}
 	
+	public int getScore() {
+		return score;
+	}
+	public void setScore(int score) {
+		this.score = score;
+	}
+	public Sword getArms() {
+		return arms;
+	}
 	public void attack(Entity entity){
 		arms.attackEntity(entity);
 	}

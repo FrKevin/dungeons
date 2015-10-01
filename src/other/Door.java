@@ -16,6 +16,8 @@ public class Door {
 	protected boolean visible;
 	protected boolean opened;
 	
+	public Door() {}
+	
 	public Door(Room room, Room newRoom) {
 		rooms = new Room[2];
 		rooms[0] = room;
@@ -42,22 +44,7 @@ public class Door {
 			});
 		}
 	}
-	
-	/*public boolean setRoomPipe(Room room) {
 		
-		if(rooms[1] != null) {
-			return false;
-		} else if(rooms[0] == null) {
-			rooms[0] = room;
-		} else {
-			rooms[1] = room;
-		}
-		return true;
-	}*/
-	
-	public Door() {
-		// TODO Auto-generated constructor stub
-	}
 
 	public Room getAdjacentRoom(Room room) {
 		if(room == rooms[0]) {

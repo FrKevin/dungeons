@@ -30,9 +30,8 @@ public abstract class Room {
 	}
 	
 	public void init(RoomFactoryGenerator roomFactory) {
-		
 		this.entities = roomFactory.getEntities();
-	};
+	}
 	
 	public RoomGenInfo getRoomGenInfo() {
 		return roomGenInfo;

@@ -19,8 +19,9 @@ public class Sword extends ItemWithDurability{
 	public void setDamage(double damage) {
 		this.damage = damage;
 	}
-
-	public void attackEntity(Entity entity){
+	
+	@Override
+	public void use(Entity entity){
 		entity.setHealthPoints(entity.getHealthPoints() - damage);
 	}
 

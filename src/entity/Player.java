@@ -1,12 +1,12 @@
 package entity;
 
-import item.Inventory;
+import item.Container;
 import item.weapons.Sword;
 
 public class Player extends Entity{
 	protected int score;
 	protected Sword arms;
-	protected Inventory inventory;
+	protected Container inventory;
 	
 	public Player(String name){
 		this(20, name);
@@ -22,7 +22,7 @@ public class Player extends Entity{
 		super(healthPoints, name);
 		this.score = 0;
 		arms = new Sword("wooden_sword", 60, 5);
-		inventory = new Inventory();
+		inventory = new Container();
 	}
 	
 	public int getScore() {
@@ -35,7 +35,7 @@ public class Player extends Entity{
 		return arms;
 	}
 	public void attack(Entity entity){
-		arms.attackEntity(entity);
+		arms.use(entity);
 	}
 	
 	public String showInventory(){

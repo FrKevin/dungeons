@@ -1,7 +1,7 @@
 package item.potion;
 
-import entity.Player;
+import entity.Entity;
 
 public interface Effect {
-	public void effect(Player player);
+	public void effect(Entity entity);
 }

@@ -1,5 +1,6 @@
 package item.potion;
 
+import entity.Entity;
 import entity.Player;
 
 public class Poison implements Effect{
@@ -11,7 +12,7 @@ public class Poison implements Effect{
 	}
 	
 	@Override
-	public void effect(Player player) {
-		player.setHealthPoints(player.getHealthPoints() - dammage);
+	public void effect(Entity entity) {
+		entity.setHealthPoints(entity.getHealthPoints() - dammage);
 	}
 }

@@ -1,5 +1,6 @@
 package item;
 
+import entity.Entity;
 import entity.Player;
 import item.potion.Effect;
 
@@ -11,8 +12,9 @@ public class Potion extends Item{
 		this.effect = effect;
 	}
 	
-	public void use(Player player){
-		effect.effect(player);
+	@Override
+	public void use(Entity entity){
+		effect.effect(entity);
 	}
 
 	@Override

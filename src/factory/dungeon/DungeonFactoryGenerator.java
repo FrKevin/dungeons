@@ -55,8 +55,6 @@ public class DungeonFactoryGenerator extends AbstractDungeonFactory {
 		Map<Way, RoomGenInfo> ways = roomGeninfo.createWays(previousWay);
 			
 		for(Entry<Way, RoomGenInfo> roomGenInfoEntry : ways.entrySet()) {
-			System.out.println("gen");
-			System.out.println(roomGenInfoEntry.getKey()+" info "+roomGenInfoEntry.getValue());
 			Room newRoom = roomFactory.createRoom();
 			
 			//Door newDoor = new Door(room, newRoom);

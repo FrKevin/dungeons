@@ -1,5 +1,9 @@
 package item;
 
+import java.sql.Time;
+
+import entity.Entity;
+
 public class ItemStack {
 	protected int number;
 	protected Item item;
@@ -19,10 +23,21 @@ public class ItemStack {
 		return number > 0;
 	}
 	
-	public void use(){
-		if(canUse()){
-			number--;
+	public void use(Entity entity){
+		if(!canUse()){
+			return;
+		}
+		number--;
+		item.use(entity);
+	}
+	
+	public void add(Item item){
+		if(this.item.equals(item)){
+			number++;
 		}
 	}
 	
+	public Item getItem() {
+		return item;
+	}
 }

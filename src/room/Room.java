@@ -22,10 +22,7 @@ public abstract class Room {
 	protected Map<String, Map<String, Entity>> entities;
 	protected Map<Way, Door> doors;
 	
-	protected RoomGenInfo roomGenInfo;
-	
-	public Room(RoomGenInfo roomGenInfo) {
-		this.roomGenInfo = roomGenInfo;
+	public Room() {
 		doors = new HashMap<>();
 	}
 	
@@ -33,10 +30,6 @@ public abstract class Room {
 		
 		this.entities = roomFactory.getEntities();
 	};
-	
-	public RoomGenInfo getRoomGenInfo() {
-		return roomGenInfo;
-	}
 	
 	public Map<String, Map<String, Entity>> getEntities() {
 		return entities;

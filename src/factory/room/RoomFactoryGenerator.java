@@ -28,19 +28,9 @@ public class RoomFactoryGenerator extends AbstractRoomFactory {
 		this.nbRoomCreated = 1;
 	}
 	
-	@Override
 	public Room createRoom() {
-		// TODO Auto-generated method stub
-		return null;
-	}
-	
-	public Room getNewRoom(RoomGenInfo roomGenInfo) {
-		return newRoom(roomGenInfo);
-	}
-	
-	public Room newRoom(RoomGenInfo roomGenInfo) {
 		
-		Room room = new BasicRoom(roomGenInfo);
+		Room room = new BasicRoom();
 		
 		entities = new HashMap<>();
 		

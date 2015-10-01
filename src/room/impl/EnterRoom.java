@@ -6,9 +6,8 @@ import room.geninfo.RoomGenInfo;
 
 public class EnterRoom extends Room{
 
-	public EnterRoom(RoomGenInfo roomGenInfo) {
-		super(roomGenInfo);
-		// TODO Auto-generated constructor stub
+	public EnterRoom() {
+		
 	}
 
 	@Override

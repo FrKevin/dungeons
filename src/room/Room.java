@@ -11,7 +11,6 @@ import factory.room.RoomFactoryGenerator;
 import main.Main;
 import other.Door;
 import other.Way;
-import room.geninfo.RoomGenInfo;
 
 public abstract class Room {
 	//protected HashMap<String, Room> rooms = new HashMap<>();
@@ -22,19 +21,12 @@ public abstract class Room {
 	protected Map<String, Map<String, Entity>> entities;
 	protected Map<Way, Door> doors;
 	
-	protected RoomGenInfo roomGenInfo;
-	
-	public Room(RoomGenInfo roomGenInfo) {
-		this.roomGenInfo = roomGenInfo;
+	public Room() {
 		doors = new HashMap<>();
 	}
 	
 	public void init(RoomFactoryGenerator roomFactory) {
 		this.entities = roomFactory.getEntities();
-	}
-	
-	public RoomGenInfo getRoomGenInfo() {
-		return roomGenInfo;
 	}
 	
 	public Map<String, Map<String, Entity>> getEntities() {
@@ -65,7 +57,7 @@ public abstract class Room {
 		System.out.println("=========== Attack ==========");
 		while(!player.death() && !monster.death() ){
 			// your turn 
-			Main.commandeManager.interpretCommandAttack(monster);
+			Main.commandManager.interpretCommandAttack(monster);
 			// Monster turn
 			monster.attackEntity(player);
 		}
@@ -104,7 +96,6 @@ public abstract class Room {
 	public Room getRoom(String string){
 		Door door;
 		if((door = checkExist(string)) != null) {
-			System.out.println(door + " - " + door.getAdjacentRoom(this));
 			return door.getAdjacentRoom(this);
 		}
 		return this;

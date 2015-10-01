@@ -1,16 +1,8 @@
 package other;
 
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
-
-import factory.room.RoomFactoryGenerator;
 import room.Room;
 
 public class Door {
-	
-	protected List<Button> buttons;
 	protected Room[] rooms;
 	
 	protected boolean visible;
@@ -24,28 +16,6 @@ public class Door {
 		rooms[1] = newRoom;
 	}
 	
-	
-	
-	public void randomGeneration(RoomFactoryGenerator roomFactory) {
-		if(Utils.rnd.nextFloat() <= roomFactory.getLockedDoorChance()) {
-			opened = false;
-			buttons.add(new Button(this) {
-				public void swt() {
-					Door.this.opened = true;
-				}
-			});
-		}
-		if(Utils.rnd.nextFloat() <= roomFactory.getHiddenDoorChance()) {
-			visible = false;
-			buttons.add(new Button(this) {
-				public void swt() {
-					Door.this.visible = true;
-				}
-			});
-		}
-	}
-		
-
 	public Room getAdjacentRoom(Room room) {
 		if(room == rooms[0]) {
 			return rooms[1];
@@ -58,5 +28,22 @@ public class Door {
 			return true;
 		return false;
 	}
+
+	public boolean isVisible() {
+		return visible;
+	}
+
+	public void setVisible(boolean visible) {
+		this.visible = visible;
+	}
+
+	public boolean isOpened() {
+		return opened;
+	}
+
+	public void setOpened(boolean opened) {
+		this.opened = opened;
+	}
+	
 	
 }

@@ -6,9 +6,8 @@ import room.geninfo.RoomGenInfo;
 
 public class TrapRoom extends Room{
 
-	public TrapRoom(RoomGenInfo roomGenInfo) {
-		super(roomGenInfo);
-		// TODO Auto-generated constructor stub
+	public TrapRoom() {
+		
 	}
 
 	@Override

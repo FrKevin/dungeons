@@ -16,8 +16,8 @@ public class RoomFactoryGenerator extends AbstractRoomFactory {
 	protected int maxRoom;
 	protected int nbRoomCreated;
 	
-	protected float hiddenDoorChance = 0.5f;
-	protected float lockedDoorChance = 0.5f;
+	/*protected float hiddenDoorChance = 0.5f;
+	protected float lockedDoorChance = 0.5f;*/
 	
 	protected List<EntityGenerationDetails> entitiesGenerationDetails;
 	
@@ -28,19 +28,9 @@ public class RoomFactoryGenerator extends AbstractRoomFactory {
 		this.nbRoomCreated = 1;
 	}
 	
-	@Override
 	public Room createRoom() {
-		// TODO Auto-generated method stub
-		return null;
-	}
-	
-	public Room getNewRoom(RoomGenInfo roomGenInfo) {
-		return newRoom(roomGenInfo);
-	}
-	
-	public Room newRoom(RoomGenInfo roomGenInfo) {
 		
-		Room room = new BasicRoom(roomGenInfo);
+		Room room = new BasicRoom();
 		
 		entities = new HashMap<>();
 		
@@ -83,13 +73,13 @@ public class RoomFactoryGenerator extends AbstractRoomFactory {
 	}
 	
 	
-	public float getHiddenDoorChance() {
+	/*public float getHiddenDoorChance() {
 		return hiddenDoorChance;
 	}
 	
 	public float getLockedDoorChance() {
 		return lockedDoorChance;
-	}
+	}*/
 	
 	public Map<String, Map<String, Entity>> getEntities() {
 		return entities;

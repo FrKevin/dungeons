@@ -4,17 +4,7 @@ import static org.junit.Assert.*;
 
 import org.junit.Test;
 
-public class RoomTest {
-
-	@Test
-	public void testToString() {
-		fail("Not yet implemented");
-	}
-
-	@Test
-	public void testCanEnter() {
-		fail("Not yet implemented");
-	}
+public class BasicRoomTest {
 
 	@Test
 	public void testBasicRoom() {
@@ -23,21 +13,6 @@ public class RoomTest {
 
 	@Test
 	public void testRoom() {
-		fail("Not yet implemented");
-	}
-
-	@Test
-	public void testInit() {
-		fail("Not yet implemented");
-	}
-
-	@Test
-	public void testGetRoomGenInfo() {
-		fail("Not yet implemented");
-	}
-
-	@Test
-	public void testGetEntities() {
 		fail("Not yet implemented");
 	}
 

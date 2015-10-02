@@ -49,9 +49,4 @@ public class RoomFactoryGenerator extends AbstractRoomFactory {
 		}
 		return room;
 	}
-		
-	public Map<String, Map<String, Entity>> getEntities() {
-		return entities;
-	}
-	
 }

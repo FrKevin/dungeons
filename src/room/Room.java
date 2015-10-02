@@ -46,7 +46,9 @@ public abstract class Room {
 			// your turn 
 			Main.commandManager.interpretCommandAttack(monster);
 			// Monster turn
+			System.out.println("Monster attack");
 			monster.attackEntity(player);
+			System.out.println("You have "+ player.getHealthPoints()+" HP");
 		}
 		System.out.println("=============================");
 	}

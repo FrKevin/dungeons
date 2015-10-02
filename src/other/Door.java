@@ -16,6 +16,10 @@ public class Door {
 		rooms[1] = newRoom;
 	}
 	
+	/**
+	 * Get the adjacent room
+	 * @param room
+	 */
 	public Room getAdjacentRoom(Room room) {
 		if(room == rooms[0]) {
 			return rooms[1];
@@ -43,6 +47,10 @@ public class Door {
 
 	public void setOpened(boolean opened) {
 		this.opened = opened;
+	}
+
+	public Room[] getRooms() {
+		return rooms;
 	}
 	
 	

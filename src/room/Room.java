@@ -11,8 +11,8 @@ import other.Door;
 import other.Way;
 
 public abstract class Room {
-	public boolean haveMonster;
-	public Monster monster;
+	protected boolean haveMonster;
+	protected Monster monster;
 	
 	protected Map<Way, Door> doors;
 	
@@ -69,7 +69,6 @@ public abstract class Room {
 	}
 	
 	public Door checkExist(String str){
-		
 		for(Entry<Way, Door> entry : doors.entrySet()) {
 			if(entry.getKey().toString().toLowerCase().equals(str))
 				return entry.getValue();
@@ -90,4 +89,13 @@ public abstract class Room {
 		this.monster = monster;
 		this.haveMonster = true;
 	}
+
+	public boolean isHaveMonster() {
+		return haveMonster;
+	}
+
+	public Monster getMonster() {
+		return monster;
+	}
+	
 }

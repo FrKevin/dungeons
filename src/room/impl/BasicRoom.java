@@ -6,7 +6,6 @@ public class BasicRoom extends Room{
 
 	public BasicRoom() {
 		super();
-		// TODO Auto-generated constructor stub
 	}
 
 	@Override

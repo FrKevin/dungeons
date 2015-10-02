@@ -1,10 +1,13 @@
 package factory.dungeon;
 
+import java.util.Map.Entry;
 import java.util.Random;
 
 import dungeon.Dungeon;
 import factory.AbstractDungeonFactory;
 import factory.AbstractRoomFactory;
+import other.Door;
+import other.Way;
 
 public class LinearDungeonFactory extends AbstractDungeonFactory{
 	private final AbstractRoomFactory abstractFactory;
@@ -47,6 +50,12 @@ public class LinearDungeonFactory extends AbstractDungeonFactory{
 		tmp.setRoom("north", abstractFactory.createExitRoom());
 		return rooms;*/
 		return null; // TO DO
+	}
+
+	@Override
+	public Entry<Way, Door> getExitDoor() {
+		// TODO Auto-generated method stub
+		return null;
 	}
 
 }

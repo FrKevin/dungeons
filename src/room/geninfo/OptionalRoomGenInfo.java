@@ -4,9 +4,12 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.Map.Entry;
 
 import other.Way;
+import other.Door;
 import other.Utils;
+import room.Room;
 import room.RoomType;
 
 public class OptionalRoomGenInfo extends RoomGenInfo {

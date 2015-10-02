@@ -1,6 +1,10 @@
 package dungeon;
 
+import java.util.Map.Entry;
+
 import main.Main;
+import other.Door;
+import other.Way;
 import room.Room;
 
 public class Dungeon {
@@ -8,9 +12,12 @@ public class Dungeon {
 	protected int nbRoom;
 	protected Room currentRoom;
 	
-	public Dungeon(int nbRoom, Room currentRoom) {
+	protected Entry<Way, Door> exitDoor;
+	
+	public Dungeon(int nbRoom, Room currentRoom, Entry<Way, Door> exitDoor) {
 		this.nbRoom = nbRoom;
 		this.currentRoom = currentRoom;
+		this.exitDoor = exitDoor;
 	}
 	
 	public Room getCurrentRoom() {
@@ -32,5 +39,9 @@ public class Dungeon {
 	
 	public void setCurrentRoom(Room room){
 		this.currentRoom = room;
+	}
+	
+	public Entry<Way, Door> getExitDoor() {
+		return exitDoor;
 	}
 }

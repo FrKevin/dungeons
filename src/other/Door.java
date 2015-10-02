@@ -1,16 +1,9 @@
 package other;
 
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
-
-import factory.room.RoomFactoryGenerator;
 import room.Room;
 
 public class Door {
 	
-	protected List<Button> buttons;
 	protected Room[] rooms;
 	
 	protected boolean visible;
@@ -22,7 +15,7 @@ public class Door {
 		rooms[1] = newRoom;
 	}
 	
-	/*public boolean setRoomPipe(Room room) {
+	public boolean setRoomPipe(Room room) {
 		
 		if(rooms[1] != null) {
 			return false;
@@ -32,7 +25,7 @@ public class Door {
 			rooms[1] = room;
 		}
 		return true;
-	}*/
+	}
 	
 	public Door() {
 		// TODO Auto-generated constructor stub

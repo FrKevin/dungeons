@@ -9,12 +9,15 @@ import entity.geninfo.EntityGenerationDetails;
 import factory.AbstractRoomFactory;
 import room.Room;
 import room.geninfo.RoomGenInfo;
+import room.geninfo.RoomGenInfoWrapper;
 import room.impl.BasicRoom;
 
 public class RoomFactoryGenerator extends AbstractRoomFactory {
 	
 	protected int maxRoom;
 	protected int nbRoomCreated;
+	
+	protected RoomGenInfoWrapper roomGenInfoWrapper;
 	
 	/*protected float hiddenDoorChance = 0.5f;
 	protected float lockedDoorChance = 0.5f;*/
@@ -23,14 +26,15 @@ public class RoomFactoryGenerator extends AbstractRoomFactory {
 	
 	protected Map<String, Map<String, Entity>> entities;
 	
-	public RoomFactoryGenerator(int maxRoom) {
+	public RoomFactoryGenerator(int maxRoom, RoomGenInfoWrapper roomGenInfoWrapper) {
 		this.maxRoom = maxRoom;
+		this.roomGenInfoWrapper = roomGenInfoWrapper;
 		this.nbRoomCreated = 1;
 	}
 	
 	public Room createRoom() {
 		
-		Room room = new BasicRoom();
+		Room room = new BasicRoom(roomGenInfoWrapper.getRoomGenInfo().getRoomType());
 		
 		entities = new HashMap<>();
 		

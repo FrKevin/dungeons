@@ -4,12 +4,16 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.Map.Entry;
 
 import other.Config;
+import other.Door;
 import other.Utils;
 import other.Way;
+import room.Room;
 import room.RoomType;
 import room.distributor.OptionalRoomDistributor;
+import room.impl.ExitRoom;
 
 public class MainRoomGenInfo extends RoomGenInfo {
 
@@ -33,7 +37,7 @@ public class MainRoomGenInfo extends RoomGenInfo {
 		Way reverseWay = Utils.reverseWay(previousWay);
 		Way nextMainWay = genMainWay(reverseWay);
 		
-		List<Way> waysList = new ArrayList<>();
+		List<Way>waysList = new ArrayList<>();
 		
 		int optionalRoomNb = 0;
 		
@@ -83,6 +87,15 @@ public class MainRoomGenInfo extends RoomGenInfo {
 			mainWay = nextWay;
 		}
 		return mainWay;
+	}
+	
+	public Way genExitDoorWay(Way previousWay) {
+		Way reverseWay = Utils.reverseWay(previousWay);
+		Way nextWay;
+		do {
+			nextWay = Way.values()[Utils.rnd.nextInt(Way.values().length)];
+		} while(nextWay == reverseWay);
+		return nextWay;
 	}
 	
 }

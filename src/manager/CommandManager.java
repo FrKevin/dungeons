@@ -31,8 +31,8 @@ public class CommandManager {
 		if(containsString(commandBuffer, "go")){
 			commandBuffer.delete (0, 3);
 			if( !checkArgument(commandBuffer.toString()) ){
-				Main.dungeon.setCurrentRoom(Main.dungeon.getCurrentRoom().getRoom(commandBuffer.toString()));
-				System.out.println("Your are in the "+ Main.dungeon.getCurrentRoom());
+				Main.game.getDungeon().setCurrentRoom(Main.game.getDungeon().getCurrentRoom().getRoom(commandBuffer.toString()));
+				System.out.println("Your are in the "+ Main.game.getDungeon().getCurrentRoom());
 			}
 			return true;
 		}
@@ -44,11 +44,11 @@ public class CommandManager {
 			commandBuffer.delete (0, 5);
 			if( !checkArgument(commandBuffer.toString()) ){
 				if(commandBuffer.toString().compareTo("room") == 0)
-					System.out.println(Main.dungeon.getCurrentRoom().showExit());
+					System.out.println(Main.game.getDungeon().getCurrentRoom().showExit());
 				if(commandBuffer.toString().compareTo("inventory") == 0)
 					System.out.println(Main.player.showInventory());
 				if(commandBuffer.toString().compareTo("map") == 0)
-					new Window(500, 500, Main.dungeon, new Map(Main.dungeon));
+					new Window(500, 500, Main.game);
 				else{
 					noCommandFound();
 					return false;

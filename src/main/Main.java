@@ -10,21 +10,22 @@ public class Main {
 	public static Dungeon dungeon;
 	public static CommandManager commandManager;
 	public static Player player;
+	public static Game game;
 	
 	public static void main(String[] args) {
 		//LinearDungeonsFactory factoryDungeons = new LinearDungeonsFactory(new DefaultRoomFactory(), 5);
 		
 
-		AbstractDungeonFactory factoryDungeons = new DungeonFactoryGenerator(50);
-		dungeon = factoryDungeons.create();
+		
 		
 		commandManager = new CommandManager();
 		//dungeon = new Dungeon(room);
-		player = new Player("Kevin");
+		//player = new Player("Kevin");
 		
-		Game game = new Game(dungeon, player);
+		game = new Game();
+		//Game game = new Game(dungeon, player);
 		//Clear memory
-		factoryDungeons = null;
+		//factoryDungeons = null;
 		
 		game.run();
 	}	

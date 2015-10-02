@@ -2,12 +2,13 @@ package room.impl;
 
 import entity.Player;
 import room.Room;
+import room.RoomType;
 import room.geninfo.RoomGenInfo;
 
 public class BasicRoom extends Room{
 
-	public BasicRoom() {
-		super();
+	public BasicRoom(RoomType roomType) {
+		super(roomType);
 		// TODO Auto-generated constructor stub
 	}
 

@@ -1,5 +1,6 @@
 package factory.dungeon;
 
+import java.util.AbstractMap;
 import java.util.Map;
 import java.util.Map.Entry;
 
@@ -11,8 +12,12 @@ import other.Door;
 import other.Utils;
 import other.Way;
 import room.Room;
+import room.RoomType;
 import room.geninfo.MainRoomGenInfo;
 import room.geninfo.RoomGenInfo;
+import room.geninfo.RoomGenInfoWrapper;
+import room.impl.BasicRoom;
+import room.impl.ExitRoom;
 
 public class DungeonFactoryGenerator extends AbstractDungeonFactory {
 	
@@ -22,6 +27,13 @@ public class DungeonFactoryGenerator extends AbstractDungeonFactory {
 	protected RoomFactoryGenerator roomFactory;
 	protected DoorFactoryGenerator doorFactory;
 	//protected Room currentRoom;
+	
+	protected MainRoomGenInfo mainRoomGenInfo;
+	protected RoomGenInfoWrapper roomGenInfoWrapper;
+	
+	protected Room exitRoom;
+	protected Way lastPreviousMainWay;
+	protected Entry<Way, Door> exitDoor;
 	
 	public DungeonFactoryGenerator(){
 		this(20);
@@ -33,23 +45,60 @@ public class DungeonFactoryGenerator extends AbstractDungeonFactory {
 	
 	@Override
 	public Dungeon create() {
-		return new Dungeon(nbRoomCreated, generateRooms());
+		return new Dungeon(nbRoomCreated, generateRooms(), exitDoor);
+	}
+	
+	public void prepareRoomGenInfo() {
+		if(exitDoor == null)
+			mainRoomGenInfo = new MainRoomGenInfo(4, Utils.reverseWay(Way.NORTH)); // maxRoom
+		else {
+			mainRoomGenInfo = new MainRoomGenInfo(4, Utils.reverseWay(exitDoor.getKey())); // maxRoom
+		}
 	}
 	
 	public Room generateRooms() {
 		nbRoomCreated = 1;
 		
-		roomFactory = new RoomFactoryGenerator(maxRoom);
+		prepareRoomGenInfo();
+		roomGenInfoWrapper = new RoomGenInfoWrapper(mainRoomGenInfo);
+		roomFactory = new RoomFactoryGenerator(maxRoom, roomGenInfoWrapper);
 		doorFactory = new DoorFactoryGenerator();
 		
 		Room firstRoom = roomFactory.createRoom();
-		firstRoom.setDoor(Utils.reverseWay(Way.NORTH), new Door());
-		generateRoom(Way.NORTH, firstRoom, new MainRoomGenInfo(maxRoom, Utils.reverseWay(Way.NORTH)));
+		generateRoom(bindDungeons(firstRoom), firstRoom, mainRoomGenInfo);
+		
+		bindExitDoor();
 		
 		return firstRoom;
 	}
 	
+	public void bindExitDoor() {
+		System.out.println(" - finished");
+		Way way = mainRoomGenInfo.genExitDoorWay(lastPreviousMainWay);
+		Door door = new Door(exitRoom, null);
+		exitRoom.setDoor(way, door);
+		exitDoor = new AbstractMap.SimpleEntry<Way, Door>(way, door);
+	}
+	
+	public Way bindDungeons(Room nextRoom) {
+		if(exitDoor == null)
+			nextRoom.setDoor(Utils.reverseWay(Way.NORTH), new Door());
+		else {
+			nextRoom.setDoor(Utils.reverseWay(exitDoor.getKey()), exitDoor.getValue());
+			exitDoor.getValue().setRoomPipe(nextRoom);
+			return exitDoor.getKey();
+		}
+		return Way.NORTH;
+	}
+	
 	public Room generateRoom(Way previousWay, Room room, RoomGenInfo roomGeninfo) {
+		//roomGenInfoWrapper.setRoomGenInfo(roomGeninfo);
+		if(room.getRoomType() == RoomType.MAIN_ROOM) {
+			exitRoom = room;
+			lastPreviousMainWay = previousWay;
+		}
+		System.out.println(roomGeninfo);
+		System.out.println(room.getRoomType());
 		
 		//Map<Way, RoomGenInfo> ways = room.getRoomGenInfo().createWays(previousWay);
 		Map<Way, RoomGenInfo> ways = roomGeninfo.createWays(previousWay);
@@ -57,6 +106,7 @@ public class DungeonFactoryGenerator extends AbstractDungeonFactory {
 		for(Entry<Way, RoomGenInfo> roomGenInfoEntry : ways.entrySet()) {
 			System.out.println("gen");
 			System.out.println(roomGenInfoEntry.getKey()+" info "+roomGenInfoEntry.getValue());
+			roomGenInfoWrapper.setRoomGenInfo(roomGenInfoEntry.getValue());
 			Room newRoom = roomFactory.createRoom();
 			
 			//Door newDoor = new Door(room, newRoom);
@@ -69,6 +119,10 @@ public class DungeonFactoryGenerator extends AbstractDungeonFactory {
 		}
 		
 		return room;
+	}
+	
+	public Entry<Way, Door> getExitDoor() {
+		return exitDoor;
 	}
 	
 	/*public Room getCurrentRoom() {

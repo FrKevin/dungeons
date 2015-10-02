@@ -2,12 +2,13 @@ package room.impl;
 
 import entity.Player;
 import room.Room;
+import room.RoomType;
 import room.geninfo.RoomGenInfo;
 
 public class EnterRoom extends Room{
 
-	public EnterRoom() {
-		
+	public EnterRoom(RoomType type) {
+		super(type);
 	}
 
 	@Override

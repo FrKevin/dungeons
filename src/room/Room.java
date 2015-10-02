@@ -11,10 +11,8 @@ import factory.room.RoomFactoryGenerator;
 import main.Main;
 import other.Door;
 import other.Way;
-import room.geninfo.RoomGenInfo;
 
 public abstract class Room {
-	//protected HashMap<String, Room> rooms = new HashMap<>();
 	
 	public boolean haveMonster;
 	public Monster monster;
@@ -22,7 +20,10 @@ public abstract class Room {
 	protected Map<String, Map<String, Entity>> entities;
 	protected Map<Way, Door> doors;
 	
-	public Room() {
+	protected RoomType roomType;
+	
+	public Room(RoomType roomType) {
+		this.roomType = roomType;
 		doors = new HashMap<>();
 	}
 	
@@ -81,10 +82,6 @@ public abstract class Room {
 		return false;
 	}
 	
-	/*public void setRoom(String direction, Room room){
-		rooms.put(direction, room);
-	}*/
-	
 	public Door checkExist(String str){
 		
 		for(Entry<Way, Door> entry : doors.entrySet()) {
@@ -107,5 +104,9 @@ public abstract class Room {
 	public void setMonster(Monster monster){
 		this.monster = monster;
 		this.haveMonster = true;
+	}
+	
+	public RoomType getRoomType() {
+		return roomType;
 	}
 }

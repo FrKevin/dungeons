@@ -1,12 +1,15 @@
 package room.geninfo;
 
-import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
+import java.util.Map.Entry;
 
+import other.Door;
 import other.Utils;
 import other.Way;
+import room.Room;
 import room.RoomType;
+import room.impl.ExitRoom;
 
 public abstract class RoomGenInfo {
 	
@@ -56,7 +59,6 @@ public abstract class RoomGenInfo {
 		}
 	}
 	
-	//public abstract Map<Way, RoomGenInfo> createWays();
 	public abstract Map<Way, RoomGenInfo> createWays(Way previousWay);
 	
 	public boolean isGenerationFinished() {

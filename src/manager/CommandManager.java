@@ -76,12 +76,8 @@ public class CommandManager {
 					System.out.println(Main.dungeon.getCurrentRoom().showExit());
 				if(commandBuffer.toString().compareTo("inventory") == 0)
 					System.out.println(Main.player.showInventory());
-				else{
-					noCommandFound();
-					return false;
-				}
-				return true;
 			}
+				return true;
 		}
 		return false;
 	}

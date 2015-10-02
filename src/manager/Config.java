@@ -1,4 +1,4 @@
-package other;
+package manager;
 
 /**
  * Config for game

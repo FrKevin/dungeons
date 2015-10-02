@@ -57,7 +57,7 @@ public class DungeonFactoryGenerator extends AbstractDungeonFactory {
 		for(Entry<Way, RoomGenInfo> roomGenInfoEntry : ways.entrySet()) {
 			Room newRoom = roomFactory.createRoom();
 			Door newDoor = doorFactory.createDoor(room, newRoom);
-			boolean haveMonster = ( RAND.nextInt(5) == 1);
+			boolean haveMonster = ( RAND.nextInt(10) == 1);
 			if(haveMonster){
 				newRoom.setMonster(new Spider());
 			}

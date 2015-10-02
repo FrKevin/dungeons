@@ -1,16 +1,28 @@
 package entity;
 
-import room.Room;
-
+/**
+ * The Entity implements Cloneable
+ *
+ */
 public abstract class Entity implements Cloneable {
 	protected double healthPoints;
 	protected String name;
-	
+	/**
+	 * 
+	 * @param healthPoints:
+	 * 		the life for the Entity
+	 * @param name:
+	 * 		the name of Entity
+	 */
 	public Entity(int healthPoints, String name) {
 		this.healthPoints = healthPoints;
 		this.name = name;
 	}
 	
+	/**
+	 * clone the Entity
+	 * @return Entity
+	 */
 	public Entity clone() {
 		try {
 			return (Entity)super.clone();
@@ -23,6 +35,9 @@ public abstract class Entity implements Cloneable {
 	
 	public double getHealthPoints(){
 		return healthPoints;
+	}
+	public String getName(){
+		return name;
 	}
 	
 	public void setHealthPoints(double d){

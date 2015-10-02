@@ -9,6 +9,8 @@ public class Door {
 	protected boolean visible;
 	protected boolean opened;
 	
+	public Door() {}
+	
 	public Door(Room room, Room newRoom) {
 		rooms = new Room[2];
 		rooms[0] = room;
@@ -43,21 +45,22 @@ public class Door {
 			return true;
 		return false;
 	}
-	
-	public void setVisible(boolean b) {
-		visible = b;
-	}
-	
-	public void setOpened(boolean b) {
-		opened = b;
-	}
-	
-	public boolean getVisible() {
+
+	public boolean isVisible() {
 		return visible;
 	}
-	
-	public boolean getOpened() {
+
+	public void setVisible(boolean visible) {
+		this.visible = visible;
+	}
+
+	public boolean isOpened() {
 		return opened;
 	}
+
+	public void setOpened(boolean opened) {
+		this.opened = opened;
+	}
+	
 	
 }

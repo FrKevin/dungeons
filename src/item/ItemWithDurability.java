@@ -1,8 +1,7 @@
 package item;
 
 public abstract class ItemWithDurability extends Item{
-	
-	private int durability;
+	protected int durability;
 	
 	public ItemWithDurability(String name, int durability) {
 		super(name);
@@ -10,6 +9,15 @@ public abstract class ItemWithDurability extends Item{
 	}
 	
 	public boolean isBroken(){
-		return durability == 0;
+		return durability <= 0;
 	}
+
+	public int getDurability() {
+		return durability;
+	}
+
+	public void setDurability(int durability) {
+		this.durability = durability;
+	}
+	
 }

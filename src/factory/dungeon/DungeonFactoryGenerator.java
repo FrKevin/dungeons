@@ -2,9 +2,11 @@ package factory.dungeon;
 
 import java.util.AbstractMap;
 import java.util.Map;
+import java.util.Random;
 import java.util.Map.Entry;
 
 import dungeon.Dungeon;
+import entity.monster.Spider;
 import factory.AbstractDungeonFactory;
 import factory.door.DoorFactoryGenerator;
 import factory.room.RoomFactoryGenerator;
@@ -26,7 +28,7 @@ public class DungeonFactoryGenerator extends AbstractDungeonFactory {
 	
 	protected RoomFactoryGenerator roomFactory;
 	protected DoorFactoryGenerator doorFactory;
-	//protected Room currentRoom;
+	private static final Random RAND = new Random();
 	
 	protected MainRoomGenInfo mainRoomGenInfo;
 	protected RoomGenInfoWrapper roomGenInfoWrapper;
@@ -104,14 +106,17 @@ public class DungeonFactoryGenerator extends AbstractDungeonFactory {
 		Map<Way, RoomGenInfo> ways = roomGeninfo.createWays(previousWay);
 			
 		for(Entry<Way, RoomGenInfo> roomGenInfoEntry : ways.entrySet()) {
-			System.out.println("gen");
-			System.out.println(roomGenInfoEntry.getKey()+" info "+roomGenInfoEntry.getValue());
 			roomGenInfoWrapper.setRoomGenInfo(roomGenInfoEntry.getValue());
 			Room newRoom = roomFactory.createRoom();
-			
-			//Door newDoor = new Door(room, newRoom);
 			Door newDoor = doorFactory.createDoor(room, newRoom);
-			
+			boolean haveMonster = ( RAND.nextInt(5) == 1);
+			if(haveMonster){
+				newRoom.setMonster(new Spider());
+			}
+			boolean havechest = ( RAND.nextInt(5) == 1);
+			if(havechest){
+				
+			}
 			room.setDoor(roomGenInfoEntry.getKey(), newDoor);
 			newRoom.setDoor(Utils.reverseWay(roomGenInfoEntry.getKey()), newDoor);
 			

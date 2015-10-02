@@ -27,7 +27,7 @@ public class LinearDungeonFactory extends AbstractDungeonFactory{
 		int rand1 = 0;
 		int rand2 = 0;
 		Room tmp = rooms;
-		while(index < numberOfRooms){
+		while(index < numberOfORooms){
 			rand1 = RAND.nextInt(6);
 			rand2 = RAND.nextInt(6);
 			while(rand2 == (rand1+1))

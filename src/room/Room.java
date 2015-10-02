@@ -4,20 +4,16 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Map.Entry;
 
-import entity.Entity;
 import entity.Monster;
 import entity.Player;
-import factory.room.RoomFactoryGenerator;
 import main.Main;
 import other.Door;
 import other.Way;
 
 public abstract class Room {
-	
 	public boolean haveMonster;
 	public Monster monster;
 	
-	protected Map<String, Map<String, Entity>> entities;
 	protected Map<Way, Door> doors;
 	
 	protected RoomType roomType;
@@ -25,15 +21,6 @@ public abstract class Room {
 	public Room(RoomType roomType) {
 		this.roomType = roomType;
 		doors = new HashMap<>();
-	}
-	
-	public void init(RoomFactoryGenerator roomFactory) {
-		
-		this.entities = roomFactory.getEntities();
-	};
-	
-	public Map<String, Map<String, Entity>> getEntities() {
-		return entities;
 	}
 	
 	public Map<Way, Door> getDoors() {
@@ -62,7 +49,9 @@ public abstract class Room {
 			// your turn 
 			Main.commandManager.interpretCommandAttack(monster);
 			// Monster turn
+			System.out.println("Monster attack");
 			monster.attackEntity(player);
+			System.out.println("You have "+ player.getHealthPoints()+" HP");
 		}
 		System.out.println("=============================");
 	}
@@ -95,7 +84,6 @@ public abstract class Room {
 	public Room getRoom(String string){
 		Door door;
 		if((door = checkExist(string)) != null) {
-			System.out.println(door + " - " + door.getAdjacentRoom(this));
 			return door.getAdjacentRoom(this);
 		}
 		return this;

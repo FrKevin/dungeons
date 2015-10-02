@@ -18,8 +18,11 @@ import room.Room;
 
 public class Map extends JPanel {
 	
-    protected Window window;
-    protected Game game;
+    /**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+	protected Window window;
     protected Dungeon dungeon;
     //protected Room firstRoom;
     protected Room lastRoom;

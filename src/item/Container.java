@@ -5,6 +5,7 @@ import entity.Entity;
 public class Container {
 	protected ItemStack[] container;
 	protected int size;
+	protected int indexLastInsertItem;
 	
 	public Container(){
 		this(10);
@@ -12,11 +13,12 @@ public class Container {
 	
 	public Container(int sizeOfContainer){
 		this.size = sizeOfContainer;
+		this.indexLastInsertItem = 0;
 		container = new ItemStack[this.size];
 	}
 	
 	public int contains(Item item){
-		for(int i=0; i<container.length; i++){
+		for(int i=0; i<container.length && container[i] != null; i++){
 			if(container[i].getItem().equals(item)){
 				return i;
 			}
@@ -26,13 +28,14 @@ public class Container {
 	
 	public void add(Item item){
 		int contain = contains(item);
-		if(contain == -1 && container.length == this.size-1){
+		if(contain == -1 && indexLastInsertItem == this.size){
 			System.out.println("The container is full");
 			return;
 		}
 		if(contain == -1){
 			try {
-				container[container.length+1] = new ItemStack(item);
+				container[indexLastInsertItem] = new ItemStack(item);
+				indexLastInsertItem++;
 			} catch (Exception e) {
 				e.printStackTrace();
 			}
@@ -54,4 +57,17 @@ public class Container {
 	public String toString(){
 		return "The inventory contains:\n\t "+ container.toString();
 	}
+
+	public int getSize() {
+		return size;
+	}
+
+	public ItemStack[] getContainer() {
+		return container;
+	}
+
+	public int getIndexLastInsertItem() {
+		return indexLastInsertItem;
+	}
+	
 }

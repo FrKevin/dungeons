@@ -7,7 +7,6 @@ import org.junit.Test;
 
 import entity.Entity;
 import entity.monster.Spider;
-import item.Item;
 import item.weapons.Sword;
 
 public class SwordTest {

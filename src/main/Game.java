@@ -11,6 +11,11 @@ public class Game {
 	
 	protected final Map map;
 	
+	/**
+	 * Init Game:
+	 * @param dungeon
+	 * @param player
+	 */
 	public  Game(Dungeon dungeon, Player player){
 		this.dungeon = dungeon;
 		this.player = player;

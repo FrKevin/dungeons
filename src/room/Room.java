@@ -20,14 +20,9 @@ public abstract class Room {
 		doors = new HashMap<>();
 	}
 	
-	public Map<Way, Door> getDoors() {
-		return doors;
-	}
-	
-	public void setDoor(Way way, Door door) {
-		doors.put(way, door);
-	}
-	
+	/**
+	 * @return String: all issue
+	 */
 	public String showExit(){
 		String issue = "\nThere are " + doors.size() + " output(s).\n";
 		if(doors.size() == 1){
@@ -40,6 +35,10 @@ public abstract class Room {
 		return issue;
 	}
 	
+	/**
+	 * If the room have a monster the event run
+	 * @param player
+	 */
 	public void eventMonster(Player player){
 		System.out.println("=========== Attack ==========");
 		while(!player.death() && !monster.death() ){
@@ -53,6 +52,10 @@ public abstract class Room {
 		System.out.println("=============================");
 	}
 	
+	/**
+	 * All event
+	 * @param player
+	 */
 	public void event(Player player){
 		if(haveMonster){
 			eventMonster(player);
@@ -64,10 +67,19 @@ public abstract class Room {
 	
 	public abstract boolean canEnter();
 	
+	/**
+	 * The room is a exit room ?
+	 * @return
+	 */
 	public boolean isExit(){
 		return false;
 	}
 	
+	/**
+	 * Check the if exist a room for one direction
+	 * @param str String the direction
+	 * @return
+	 */
 	public Door checkExist(String str){
 		for(Entry<Way, Door> entry : doors.entrySet()) {
 			if(entry.getKey().toString().toLowerCase().equals(str))
@@ -77,6 +89,11 @@ public abstract class Room {
 		return null;
 	}
 	
+	/**
+	 * Return a room (if exist) for one direction
+	 * @param String the direction
+	 * @return Room
+	 */
 	public Room getRoom(String string){
 		Door door;
 		if((door = checkExist(string)) != null) {
@@ -85,6 +102,10 @@ public abstract class Room {
 		return this;
 	}
 	
+	/**
+	 * Insert a monster in the room
+	 * @param monster 
+	 */
 	public void setMonster(Monster monster){
 		this.monster = monster;
 		this.haveMonster = true;
@@ -98,4 +119,16 @@ public abstract class Room {
 		return monster;
 	}
 	
+	public Map<Way, Door> getDoors() {
+		return doors;
+	}
+	
+	/**
+	 * Connect a room 
+	 * @param way, the direction
+	 * @param door the door to connect room
+	 */
+	public void setDoor(Way way, Door door) {
+		doors.put(way, door);
+	}
 }

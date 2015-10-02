@@ -2,6 +2,9 @@ package other;
 
 import room.Room;
 
+/**
+ * The door is connect of two room
+ */
 public class Door {
 	protected Room[] rooms;
 	
@@ -9,7 +12,11 @@ public class Door {
 	protected boolean opened;
 	
 	public Door() {}
-	
+	/**
+	 * Init Door
+	 * @param room
+	 * @param newRoom
+	 */
 	public Door(Room room, Room newRoom) {
 		rooms = new Room[2];
 		rooms[0] = room;
@@ -27,6 +34,10 @@ public class Door {
 		return rooms[0];
 	}
 	
+	/**
+	 * The door is correct linked ?
+	 * @return boolean
+	 */
 	public boolean isLinked() {
 		if(rooms[0] != null && rooms[1] != null)
 			return true;

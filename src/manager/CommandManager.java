@@ -5,13 +5,25 @@ import java.util.Scanner;
 import entity.Monster;
 import main.Main;
 
+/**
+ * All command is here
+ * You can:
+ * 		go
+ * 		show 
+ * 		use
+ */
 public class CommandManager {
 	protected final Scanner scanner;
 	
 	public CommandManager(){
 		this.scanner = new Scanner(System.in);
 	}
-	
+	/**
+	 * Check if have a parameter
+	 * @param string:
+	 * 		the command
+	 * @return Boolean
+	 */
 	public boolean checkArgument(String string){
 		boolean b = string.length() == 0;
 		if( b ){
@@ -20,10 +32,23 @@ public class CommandManager {
 		return b;
 	}
 	
+	/**
+	 * The string are present in the command .?
+	 * @param commandBuffer:
+	 * 		The command
+	 * @param string
+	 * @return boolean
+	 */
 	public boolean containsString(StringBuffer commandBuffer, String string){
 		return commandBuffer.indexOf(string) != -1;
 	}
 	
+	/**
+	 * Go command
+	 * @param commandBuffer 
+	 * 		The command
+	 * @return boolean
+	 */
 	public boolean goDirection(StringBuffer commandBuffer){
 		//check
 		if(containsString(commandBuffer, "go")){
@@ -37,6 +62,12 @@ public class CommandManager {
 		return false;
 	}
 	
+	/**
+	 * Show command
+	 * @param commandBuffer
+	 * 		The command
+	 * @return boolean
+	 */
 	public boolean show(StringBuffer commandBuffer){
 		if(containsString(commandBuffer, "show")){
 			commandBuffer.delete (0, 5);
@@ -55,6 +86,12 @@ public class CommandManager {
 		return false;
 	}
 	
+	/**
+	 * use command
+	 * @param commandBuffer
+	 * 		The command
+	 * @return boolean
+	 */
 	public boolean use(StringBuffer commandBuffer){
 		if(containsString(commandBuffer, "use")){
 			commandBuffer.delete (0, 4);
@@ -65,6 +102,13 @@ public class CommandManager {
 		return false;
 	}
 	
+	/**
+	 * attack command
+	 * @param commandBuffer
+	 * 		The command
+	 * @param monster
+	 * @return boolean
+	 */
 	public boolean attack(StringBuffer commandBuffer, Monster monster){
 		if(containsString(commandBuffer, "attack")){
 			Main.player.attack(monster);
@@ -72,10 +116,14 @@ public class CommandManager {
 		}
 		return false;
 	}
+	
 	private void noCommandFound() {
 		System.out.println("No command found !");
 	}
 	
+	/**
+	 * Interpret a command
+	 */
 	public void interpretCommand(){
 		System.out.println("What do you do ?");
 		System.out.print("> ");
@@ -86,6 +134,10 @@ public class CommandManager {
 		}
 	}
 	
+	/**
+	 * if a room have a monster event the commandManager use this
+	 * @param monster
+	 */
 	public void interpretCommandAttack(Monster monster){
 		boolean commandeFound;
 		do{

@@ -2,13 +2,13 @@ package entity;
 
 /**
  * The Entity implements Cloneable
- *
  */
 public abstract class Entity implements Cloneable {
 	protected double healthPoints;
 	protected String name;
+	
 	/**
-	 * 
+	 * Init Entity:
 	 * @param healthPoints:
 	 * 		the life for the Entity
 	 * @param name:
@@ -17,6 +17,14 @@ public abstract class Entity implements Cloneable {
 	public Entity(int healthPoints, String name) {
 		this.healthPoints = healthPoints;
 		this.name = name;
+	}
+	
+	/**
+	 * The Entity is death ?
+	 * @return boolean
+	 */
+	public boolean death(){
+		return healthPoints <= 0;
 	}
 	
 	/**
@@ -42,9 +50,5 @@ public abstract class Entity implements Cloneable {
 	
 	public void setHealthPoints(double d){
 		this.healthPoints = d;
-	}
-	
-	public boolean death(){
-		return healthPoints <= 0;
 	}
 }

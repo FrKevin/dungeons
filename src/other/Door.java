@@ -9,7 +9,7 @@ public class Door {
 	protected boolean visible;
 	protected boolean opened;
 	
-	public Door() {}
+	/*public Door() {}*/
 	
 	public Door(Room room, Room newRoom) {
 		rooms = new Room[2];

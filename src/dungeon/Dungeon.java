@@ -2,6 +2,7 @@ package dungeon;
 
 import java.util.Map.Entry;
 
+import main.Game;
 import main.Main;
 import other.Door;
 import other.Way;
@@ -32,7 +33,7 @@ public class Dungeon {
 	}
 	
 	public void run(){
-		currentRoom.event(Main.player);
+		currentRoom.event(Game.getPlayer());
 		Main.commandManager.interpretCommand();
 	}
 	

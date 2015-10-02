@@ -2,6 +2,7 @@ package manager;
 
 import java.util.Scanner;
 
+import dungeon_map.Window;
 import entity.Monster;
 import main.Main;
 

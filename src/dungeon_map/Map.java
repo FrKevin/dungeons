@@ -29,6 +29,8 @@ public class Map extends JPanel {
     
     protected Way previousWay;
     
+    protected Game game;
+    
     //protected Entry<Way, Door> exitDoor;
     
     //protected final int borderSize = 1;

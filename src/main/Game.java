@@ -10,7 +10,7 @@ import factory.dungeon.DungeonFactoryGenerator;
 public class Game {
 	protected Dungeon dungeon;
 	protected Dungeon tmpDungeon;
-	protected final Player player; 
+	protected static Player player = null; 
 	
 	protected final Map map;
 	
@@ -21,7 +21,7 @@ public class Game {
 		dungeonFactory = new DungeonFactoryGenerator(50);
 		
 		dungeon = dungeonFactory.create();
-		player = new Player("Kevin");
+		Game.player = new Player("Kevin");
 		
 		map = new Map(this);
 		new Window(400, 400, this);
@@ -72,5 +72,9 @@ public class Game {
 	
 	public AbstractDungeonFactory getDungeonFactory() {
 		return dungeonFactory;
+	}
+	
+	public static Player getPlayer() {
+		return player;
 	}
 }

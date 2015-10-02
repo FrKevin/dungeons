@@ -84,6 +84,7 @@ public class CommandManager {
 					return false;
 				}
 				return true;
+			}
 		}
 		return false;
 	}

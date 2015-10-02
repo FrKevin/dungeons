@@ -6,7 +6,7 @@ import java.util.List;
 import java.util.Map;
 import java.util.Map.Entry;
 
-import other.Config;
+import manager.Config;
 import other.Door;
 import other.Utils;
 import other.Way;

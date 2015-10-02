@@ -46,4 +46,8 @@ public class Dungeon {
 	public Room getFirstRoom() {
 		return firstRoom;
 	}
+	
+	public Room getCurrentRoom() {
+		return currentRoom;
+	}
 }

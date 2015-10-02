@@ -21,7 +21,7 @@ public class Map extends JPanel {
     protected Window window;
     protected Game game;
     protected Dungeon dungeon;
-    protected Room firstRoom;
+    //protected Room firstRoom;
     protected Room lastRoom;
     
     protected Way previousWay;
@@ -42,8 +42,9 @@ public class Map extends JPanel {
     
     public void init() {
     	dungeon = game.getDungeon();
-    	firstRoom = dungeon.getCurrentRoom();
-    	lastRoom = firstRoom;
+    	/*firstRoom = dungeon.getCurrentRoom();
+    	lastRoom = firstRoom;*/
+    	lastRoom = dungeon.getFirstRoom();
     }
     
     @Override
@@ -58,8 +59,8 @@ public class Map extends JPanel {
         	init();
         }
         
-        graphDispRoom(g2d, 0, 0, firstRoom);
-        dispRoom(g2d, firstRoom, Utils.reverseWay(previousWay), 0, 0);
+        graphDispRoom(g2d, 0, 0, dungeon.getFirstRoom());
+        dispRoom(g2d, dungeon.getFirstRoom(), Utils.reverseWay(previousWay), 0, 0);
     }
 
 	public void dispRoom(Graphics2D g2d, Room room, Way excludeWay, int w, int h) {
@@ -149,9 +150,9 @@ public class Map extends JPanel {
 		return false;
 	}
 	
-	public Room getLastRoom() {
+	/*public Room getLastRoom() {
 		return lastRoom;
-	}
+	}*/
 	
 	/*public void setLastRoom(Room room) {
 		lastRoom = room;

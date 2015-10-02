@@ -12,12 +12,15 @@ public class Dungeon {
 	protected int nbRoom;
 	protected Room currentRoom;
 	
+	protected Room firstRoom;
+
 	protected Entry<Way, Door> exitDoor;
 	
-	public Dungeon(int nbRoom, Room currentRoom, Entry<Way, Door> exitDoor) {
+	public Dungeon(int nbRoom, Room firstRoom, Entry<Way, Door> exitDoor) {
 		this.nbRoom = nbRoom;
-		this.currentRoom = currentRoom;
+		this.firstRoom = firstRoom;
 		this.exitDoor = exitDoor;
+		this.currentRoom = firstRoom;
 	}
 	
 	public Room getCurrentRoom() {
@@ -43,5 +46,9 @@ public class Dungeon {
 	
 	public Entry<Way, Door> getExitDoor() {
 		return exitDoor;
+	}
+	
+	public Room getFirstRoom() {
+		return firstRoom;
 	}
 }

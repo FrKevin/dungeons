@@ -9,6 +9,7 @@ import factory.dungeon.DungeonFactoryGenerator;
 
 public class Game {
 	protected Dungeon dungeon;
+	protected Dungeon tmpDungeon;
 	protected final Player player; 
 	
 	protected final Map map;
@@ -32,9 +33,19 @@ public class Game {
 			dungeon.run();
 			
 	        if(map.isRoomChanged()) {
-	        	if(dungeonFactory.getExitDoor() != null && map.getLastRoom() 
+	        	/*if(dungeonFactory.getExitDoor() != null && map.getLastRoom() 
 	        			== dungeonFactory.getExitDoor().getValue().getAdjacentRoom(null))
-	        		dungeon = dungeonFactory.create();
+	        		tmpDungeon = dungeonFactory.create();*/
+	        	
+	        	if(dungeonFactory.getExitDoor() != null) {
+	        		 if(dungeon.getCurrentRoom() == dungeon.getExitDoor().getValue().getAdjacentRoom(null))
+	 	        		tmpDungeon = dungeonFactory.create();
+	        		 else if(tmpDungeon != null && dungeon.getCurrentRoom() == tmpDungeon.getFirstRoom()) {
+	        			 dungeon = tmpDungeon;
+	        			 tmpDungeon = null;
+	        		 }
+	        	}
+	        	
 	        	map.repaint();
 	        }
 	        System.out.println(dungeon);

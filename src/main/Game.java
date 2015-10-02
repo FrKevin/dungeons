@@ -17,6 +17,11 @@ public class Game {
 	protected final AbstractDungeonFactory dungeonFactory;
 	
 	public  Game() {
+	/**
+	 * Init Game:
+	 * @param dungeon
+	 * @param player
+	 */
 		
 		dungeonFactory = new DungeonFactoryGenerator(50);
 		

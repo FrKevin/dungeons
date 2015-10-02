@@ -6,11 +6,23 @@ import item.potion.Effect;
 public class Potion extends Item{
 	public Effect effect;
 	
+	/**
+	 * Init Potion
+	 * @param name:
+	 * 		The name of potion
+	 * @param effect:
+	 * 		The effect of potion
+	 */
 	public Potion(String name, Effect effect) {
 		super(name);
 		this.effect = effect;
 	}
 	
+	/**
+	 * Use effect of potion
+	 * @param entity:
+	 * 		the target
+	 */
 	@Override
 	public void use(Entity entity){
 		effect.effect(entity);

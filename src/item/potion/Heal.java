@@ -2,6 +2,9 @@ package item.potion;
 
 import entity.Entity;
 
+/**
+ * This effect heal a entity 
+ */
 public class Heal implements Effect{
 	protected int life;
 	

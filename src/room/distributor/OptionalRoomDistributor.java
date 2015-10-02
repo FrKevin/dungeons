@@ -1,6 +1,6 @@
 package room.distributor;
 
-import other.Config;
+import manager.Config;
 import other.Utils;
 
 public class OptionalRoomDistributor {

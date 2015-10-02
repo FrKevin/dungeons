@@ -4,18 +4,16 @@ import entity.Entity;
 
 public abstract class Item {
 	protected String name;
-	
+	/**
+	 * Init Item
+	 * @param name:
+	 * 		The name of item
+	 */
 	public Item(String name){
 		this.name = name;
 	}
 	
-	public abstract String toString();
-	
 	public abstract void use(Entity entity);
-
-	public String getName() {
-		return name;
-	}
 	
 	@Override
 	public boolean equals(Object obj){
@@ -29,4 +27,9 @@ public abstract class Item {
 		return (this.name.compareTo(item.name) == 0);
 	}
 	
+	public abstract String toString();
+	
+	public String getName() {
+		return name;
+	}
 }

@@ -9,7 +9,6 @@ import other.Way;
 import room.Room;
 
 public class Dungeon {
-	
 	protected int nbRoom;
 	protected Room currentRoom;
 	
@@ -24,14 +23,9 @@ public class Dungeon {
 		this.currentRoom = firstRoom;
 	}
 	
-	public Room getCurrentRoom() {
-		return currentRoom;
-	}
-	
-	public int getNbRoom() {
-		return nbRoom;
-	}
-	
+	/**
+	 * Run a one tour
+	 */
 	public void run(){
 		currentRoom.event(Game.getPlayer());
 		Main.commandManager.interpretCommand();

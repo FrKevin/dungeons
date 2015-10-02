@@ -7,8 +7,9 @@ package entity;
 public abstract class Monster extends Entity{
 	private String [] drop;
 	private int damage;
+	
 	/**
-	 * 
+	 * Init Monster:
 	 * @param healthPoints:
 	 * 		the life for the Entity
 	 * @param name: 
@@ -22,12 +23,12 @@ public abstract class Monster extends Entity{
 	}
 	
 	/**
-	 * When the entity death, she drop many items
+	 * When the entity death, she drop many items (Not implemented)
 	 */
 	public abstract void entityDropItem();
 	
 	/**
-	 * 
+	 * The monster can attack entity
 	 * @param entity:
 	 * 		The entity target
 	 */

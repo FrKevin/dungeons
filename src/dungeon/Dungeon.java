@@ -50,4 +50,8 @@ public class Dungeon {
 	public Room getCurrentRoom() {
 		return currentRoom;
 	}
+
+	public int getNbRoom() {
+		return nbRoom;
+	}
 }

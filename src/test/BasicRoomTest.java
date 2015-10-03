@@ -9,6 +9,7 @@ import org.junit.Test;
 import entity.monster.Spider;
 import other.Door;
 import other.Way;
+import room.RoomType;
 import room.impl.BasicRoom;
 import room.impl.ExitRoom;
 
@@ -17,12 +18,12 @@ public class BasicRoomTest {
 	
 	@Before
 	public void init(){
-		room = new BasicRoom();
+		room = new BasicRoom(RoomType.MAIN_ROOM);
 	}
 	
 	@Test
 	public void testBasicRoom() {
-		BasicRoom room2 = new BasicRoom();
+		BasicRoom room2 = new BasicRoom(RoomType.MAIN_ROOM);
 		assertTrue(room2.getDoors() != null);
 		assertTrue(room2.getDoors().size() == 0);
 		assertTrue(room2.getMonster() == null);
@@ -46,7 +47,7 @@ public class BasicRoomTest {
 	@Test
 	public void testIsExit() {
 		assertFalse( room.isExit());
-		ExitRoom exit = new ExitRoom();
+		ExitRoom exit = new ExitRoom(RoomType.MAIN_ROOM);
 		assertTrue( exit.isExit());
 	}
 

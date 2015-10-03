@@ -23,7 +23,7 @@ public class Game {
 	 * @param player
 	 */
 		
-		dungeonFactory = new DungeonFactoryGenerator(50);
+		dungeonFactory = new DungeonFactoryGenerator(10);
 		
 		dungeon = dungeonFactory.create();
 		Game.player = new Player("Kevin");
@@ -35,7 +35,7 @@ public class Game {
 	public void run(){	
 		System.out.println("Welcome to the dungeon !");
 		while(!isFinished()){
-			dungeon.run();
+			//dungeon.run();
 			
 	        if(map.isRoomChanged()) {
 	        	/*if(dungeonFactory.getExitDoor() != null && map.getLastRoom() 

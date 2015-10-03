@@ -1,18 +1,22 @@
 package dungeon_map;
 
+import java.awt.event.KeyEvent;
+import java.awt.event.KeyListener;
+
 import javax.swing.JFrame;
 
 import dungeon.Dungeon;
 import main.Game;
+import other.Way;
 
 @SuppressWarnings("serial")
 public class Window extends JFrame {
 
-	protected Dungeon dungeon;
 	protected Map map;
+	protected Game game;
 	
 	public Window(int w, int h, Game game) {
-		this.dungeon = game.getDungeon();
+		this.game = game;
 		
 		setTitle("Map generator by Xraptor");
 		
@@ -24,7 +28,54 @@ public class Window extends JFrame {
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         setVisible(true);
         
+        bindFrameWithKeyListener();
+        
         //pulse();
+	}
+	
+	public void bindFrameWithKeyListener() {
+		addKeyListener(new KeyListener() {
+
+			@Override
+			public void keyPressed(KeyEvent e) {
+				int keyCode = e.getKeyCode();
+			    switch( keyCode ) { 
+			        case KeyEvent.VK_UP:
+			            game.getDungeon().setCurrentRoom(
+			            		game.getDungeon().getCurrentRoom().getRoom("north")
+			            );
+			            break;
+			        case KeyEvent.VK_DOWN:
+			        	game.getDungeon().setCurrentRoom(
+			            		game.getDungeon().getCurrentRoom().getRoom("south")
+			            );
+			            break;
+			        case KeyEvent.VK_LEFT:
+			        	game.getDungeon().setCurrentRoom(
+			            		game.getDungeon().getCurrentRoom().getRoom("west")
+			            );
+			            break;
+			        case KeyEvent.VK_RIGHT :
+			        	game.getDungeon().setCurrentRoom(
+			            		game.getDungeon().getCurrentRoom().getRoom("east")
+			            );
+			            break;
+			     }
+			     map.repaint();
+			}
+
+			@Override
+			public void keyReleased(KeyEvent e) {
+				// TODO Auto-generated method stub
+				
+			}
+
+			@Override
+			public void keyTyped(KeyEvent e) {
+				// TODO Auto-generated method stub
+				
+			}
+		});
 	}
 	
     /*public void pulse() {

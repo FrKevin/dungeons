@@ -52,9 +52,9 @@ public class DungeonFactoryGenerator extends AbstractDungeonFactory {
 	
 	public void prepareRoomGenInfo() {
 		if(exitDoor == null)
-			mainRoomGenInfo = new MainRoomGenInfo(4, Utils.reverseWay(Way.NORTH)); // maxRoom
+			mainRoomGenInfo = new MainRoomGenInfo(maxRoom, Utils.reverseWay(Way.NORTH)); // maxRoom
 		else {
-			mainRoomGenInfo = new MainRoomGenInfo(4, Utils.reverseWay(exitDoor.getKey())); // maxRoom
+			mainRoomGenInfo = new MainRoomGenInfo(maxRoom, Utils.reverseWay(exitDoor.getKey())); // maxRoom
 		}
 	}
 	

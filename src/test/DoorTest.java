@@ -8,6 +8,7 @@ import org.junit.Test;
 
 import other.Door;
 import room.Room;
+import room.RoomType;
 import room.impl.BasicRoom;
 import room.impl.ExitRoom;
 
@@ -19,8 +20,8 @@ public class DoorTest {
 	@Before
 	public void init(){
 		door = new Door();
-		basic = new BasicRoom();
-		d = new Door(basic, new ExitRoom());
+		basic = new BasicRoom(RoomType.MAIN_ROOM);
+		d = new Door(basic, new ExitRoom(RoomType.MAIN_ROOM));
 	}
 	
 	@Test
@@ -37,7 +38,7 @@ public class DoorTest {
 
 	@Test
 	public void testGetAdjacentRoom() {
-		Room tmp = d.getAdjacentRoom(new ExitRoom());
+		Room tmp = d.getAdjacentRoom(new ExitRoom(RoomType.MAIN_ROOM));
 		assertTrue( tmp.toString().compareTo("Basic room") == 0);
 		tmp = d.getAdjacentRoom(basic);
 		assertTrue(tmp.toString().compareTo("final room.") == 0);
